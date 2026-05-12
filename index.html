@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هانیه رباطی | فرانت‌اند دولوپر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <svg class="loader-logo" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="36" fill="none" stroke="rgba(167,139,250,0.15)" stroke-width="2"/>
+      <circle cx="40" cy="40" r="36" fill="none" stroke="url(#llg)" stroke-width="2"
+        stroke-dasharray="226" stroke-dashoffset="226" id="loader-ring"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Vazirmatn" font-weight="900" font-size="22" fill="url(#llg)">HR</text>
+      <defs>
+        <linearGradient id="llg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a78bfa"/>
+          <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursor-trail"></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">HR<span class="logo-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">درباره من</a></li>
+        <li><a href="#skills">مهارت‌ها</a></li>
+        <li><a href="#works">نمونه کارها</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+      <a href="#contact" class="nav-btn magnetic">بیا باهم کار کنیم ↗</a>
+      <button class="burger" id="burger"><span></span><span></span></button>
+    </div>
+    <div class="mob-menu" id="mob-menu">
+      <a href="#about">درباره من</a>
+      <a href="#skills">مهارت‌ها</a>
+      <a href="#works">نمونه کارها</a>
+      <a href="#contact">تماس</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <canvas id="canvas"></canvas>
+
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="green-dot"></span>آماده همکاری
+      </div>
+
+      <h1 class="hero-h1">
+        <span class="h1-line"><span class="h1-word">فرانت‌اند</span></span>
+        <span class="h1-line gradient-word"><span class="h1-word">دولوپر</span></span>
+        <span class="h1-name"><span class="h1-word">هانیه رباطی</span></span>
+      </h1>
+
+      <p class="hero-p">
+        بیش از <b>۶۰ پروژه</b> انیمیشنی برای برندهای پیشرو ایران —
+        از دیجیکالا تا ایرانسل، اسنپ‌پی تا تپسی
+      </p>
+
+      <div class="hero-btns">
+        <a href="#works" class="btn-glow magnetic">
+          <span class="btn-txt">مشاهده کارها</span>
+          <span class="btn-shine"></span>
+        </a>
+        <a href="#contact" class="btn-outline magnetic">تماس ↗</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <b class="stat-n" data-to="88">۰</b>
+          <span>پروژه</span>
+        </div>
+        <div class="stat-line"></div>
+        <div class="stat">
+          <b class="stat-n" data-to="35">۰</b>
+          <span>برند</span>
+        </div>
+        <div class="stat-line"></div>
+        <div class="stat">
+          <b class="stat-n" data-to="2">۰</b>
+          <span>سال تجربه</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-text-bg">ABOUT</div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left anim-up">
+          <span class="tag">بیشتر بدانید</span>
+          <h2 class="sec-h2">
+            من یه <em>سازنده</em><br>تجربه‌های دیجیتالم
+          </h2>
+          <p>تخصصم ساختن <strong>بنرهای تعاملی</strong> با انیمیشن‌های روان و پیچیده‌ست.
+          در Uranus Billboard با برندهای بزرگ ایران کار کردم و یاد گرفتم چطور در فشار
+          deadline و با محدودیت‌های واقعی production، خروجی درجه یک بسازم.</p>
+          <p>GSAP، countdown timer، صدا، انیمیشن‌های چندمرحله‌ای، loop و تعامل با کاربر
+          — اینا ابزارهای روزانه‌امن.</p>
+          <div class="pills">
+            <span>⚡ GSAP Timeline</span>
+            <span>🎵 Audio Sync</span>
+            <span>⏱ Countdown Timer</span>
+            <span>📱 Responsive</span>
+            <span>🔁 Loop & Reload</span>
+            <span>🎯 Pixel Perfect</span>
+          </div>
+        </div>
+        <div class="about-right anim-up delay-2">
+          <div class="avatar-wrap">
+            <div class="avatar-glow-ring"></div>
+            <div class="avatar-circle">HR</div>
+            <div class="float-chip c1">⚡ GSAP Expert</div>
+            <div class="float-chip c2">🚀 88+ Projects</div>
+            <div class="float-chip c3">✨ Production Ready</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills" id="skills">
+    <div class="skills-dots"></div>
+    <div class="container">
+      <div class="sec-header center anim-up">
+        <span class="tag">ابزارها</span>
+        <h2 class="sec-h2">مهارت‌ها</h2>
+      </div>
+
+      <div class="skills-layout anim-up delay-1">
+        <!-- Big radial -->
+        <div class="radial-wrap">
+          <div class="radial" data-pct="92">
+            <svg viewBox="0 0 120 120" class="radial-svg">
+              <circle cx="60" cy="60" r="52" class="r-bg"/>
+              <circle cx="60" cy="60" r="52" class="r-fill" id="gsap-ring"
+                stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+            </svg>
+            <div class="radial-inner">
+              <span class="r-pct" id="gsap-pct">0</span><span class="r-sign">%</span>
+              <span class="r-label">GSAP</span>
+            </div>
+          </div>
+          <p class="radial-desc">انیمیشن‌های پیچیده،<br>timeline، scroll trigger</p>
+        </div>
+
+        <!-- Bar list -->
+        <div class="bars-wrap">
+          <div class="bar-row">
+            <span class="bar-name"><span class="bar-dot html"></span>HTML5</span>
+            <div class="bar-track"><div class="bar-fill" data-w="93" style="--clr:#e34c26"></div></div>
+            <span class="bar-pct">93%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name"><span class="bar-dot css"></span>CSS3</span>
+            <div class="bar-track"><div class="bar-fill" data-w="91" style="--clr:#264de4"></div></div>
+            <span class="bar-pct">91%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name"><span class="bar-dot js"></span>JavaScript</span>
+            <div class="bar-track"><div class="bar-fill" data-w="86" style="--clr:#f7df1e"></div></div>
+            <span class="bar-pct">86%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name"><span class="bar-dot react"></span>React</span>
+            <div class="bar-track"><div class="bar-fill" data-w="62" style="--clr:#61dafb"></div></div>
+            <span class="bar-pct">62%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name"><span class="bar-dot git"></span>Git</span>
+            <div class="bar-track"><div class="bar-fill" data-w="78" style="--clr:#f05032"></div></div>
+            <span class="bar-pct">78%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marquee -->
+      <div class="marquee-wrap anim-up delay-2">
+        <div class="marquee-inner">
+          <div class="marquee-track">
+            <span>GSAP</span><span>HTML5</span><span>CSS3</span><span>JavaScript ES6+</span>
+            <span>React</span><span>Git</span><span>Figma</span><span>Web Animation API</span>
+            <span>Canvas</span><span>SVG Animation</span><span>Responsive Design</span>
+            <span>Banner Ads</span><span>ScrollTrigger</span><span>Timeline</span>
+            <span>GSAP</span><span>HTML5</span><span>CSS3</span><span>JavaScript ES6+</span>
+            <span>React</span><span>Git</span><span>Figma</span><span>Web Animation API</span>
+            <span>Canvas</span><span>SVG Animation</span><span>Responsive Design</span>
+            <span>Banner Ads</span><span>ScrollTrigger</span><span>Timeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section class="works" id="works">
+    <div class="container">
+      <div class="works-top">
+        <div class="anim-up">
+          <span class="tag">پروژه‌ها</span>
+          <h2 class="sec-h2">نمونه کارها</h2>
+        </div>
+        <div class="filters anim-up delay-1">
+          <button class="f-btn active" data-f="all">همه</button>
+          <button class="f-btn" data-f="fintech">فین‌تک / بانک</button>
+          <button class="f-btn" data-f="shop">فروشگاه</button>
+          <button class="f-btn" data-f="telecom">تلکام</button>
+          <button class="f-btn" data-f="transport">حمل‌ونقل</button>
+          <button class="f-btn" data-f="other">سایر</button>
+        </div>
+      </div>
+
+      <div class="wgrid" id="wgrid">
+
+        <!-- Digikala -->
+        <div class="wcard anim-up" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#ff3c5f;--g2:#ff7043">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner digi">
+                <div class="demo-pct">۱۷<small>٪</small></div>
+                <div class="demo-title">بلک‌فرایدی</div>
+                <div class="demo-sub">دیجی‌کالا</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP Timeline</span><span>Audio</span><span>Wheel Anim</span></div>
+            <h3>دیجی‌کالا — بلک‌فرایدی</h3>
+            <p>بنر انیمیشنی با چرخ شانس، صدا، و timeline چندمرحله‌ای GSAP</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digikala wepod -->
+        <div class="wcard anim-up delay-1" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#e63946;--g2:#c1121f">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner dark-red">
+                <div class="demo-logo-text">دیجی‌کالا</div>
+                <div class="demo-title">WEPOD</div>
+                <div class="demo-badge">محصول ویژه</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Product Reveal</span></div>
+            <h3>دیجی‌کالا — Wepod</h3>
+            <p>بنر نمایش محصول ویژه با انیمیشن reveal و حرکت‌های ظریف</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snapppay BF -->
+        <div class="wcard anim-up delay-2" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#7c3aed;--g2:#4f46e5">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-countdown">
+                <div class="demo-logo-text">اسنپ‌پی</div>
+                <div class="demo-cd">
+                  <span id="c-h">۰۲</span><span class="sep">:</span>
+                  <span id="c-m">۱۴</span><span class="sep">:</span>
+                  <span id="c-s">۳۸</span>
+                </div>
+                <div class="demo-badge purple">بلک‌فرایدی</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Countdown Timer</span><span>Audio</span><span>Loop</span></div>
+            <h3>اسنپ‌پی — بلک‌فرایدی</h3>
+            <p>بنر با تایمر شمارش معکوس زنده، پخش موزیک، و سه مرحله انیمیشن</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Irancell 5G -->
+        <div class="wcard anim-up" data-cat="telecom">
+          <div class="wcard-thumb" style="--g1:#059669;--g2:#0891b2">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-signal">
+                <div class="demo-logo-text">ایرانسل</div>
+                <div class="signal-bars">
+                  <span class="sb sb1"></span><span class="sb sb2"></span>
+                  <span class="sb sb3"></span><span class="sb sb4"></span>
+                </div>
+                <div class="demo-title">5G</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Multi-stage</span><span>Loop</span></div>
+            <h3>ایرانسل — ۵G</h3>
+            <p>بنر کمپین ۵G با انیمیشن‌های چند مرحله‌ای و loop خودکار</p>
+            <div class="wcard-meta">
+              <span class="wcat telecom">Telecom</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snapppay BF3 -->
+        <div class="wcard anim-up delay-1" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#6d28d9;--g2:#7c3aed">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">اسنپ‌پی</div>
+                <div class="demo-title">BF ۳</div>
+                <div class="demo-badge purple">نسخه سوم</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Countdown</span><span>Animation</span></div>
+            <h3>اسنپ‌پی — بلک‌فرایدی ۳</h3>
+            <p>نسخه سوم کمپین بلک‌فرایدی با طراحی جدید و تایمر</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tapsi -->
+        <div class="wcard anim-up delay-2" data-cat="transport">
+          <div class="wcard-thumb" style="--g1:#d97706;--g2:#dc2626">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">تپسی</div>
+                <div class="demo-title">همسفر</div>
+                <div class="demo-badge orange">سرویس</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>JS</span><span>CSS Animation</span></div>
+            <h3>تپسی — همسفر</h3>
+            <p>بنر سرویس همسفر با انیمیشن‌های متناسب برند تپسی</p>
+            <div class="wcard-meta">
+              <span class="wcat transport">Transport</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wallex -->
+        <div class="wcard anim-up" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#0f766e;--g2:#0284c7">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-chart">
+                <div class="demo-logo-text">Wallex</div>
+                <svg viewBox="0 0 80 30" class="mini-chart">
+                  <polyline points="0,25 15,18 30,22 45,10 60,14 80,4"
+                    stroke="url(#cg)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <defs><linearGradient id="cg" x1="0" y1="0" x2="80" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#a78bfa"/>
+                  </linearGradient></defs>
+                </svg>
+                <div class="demo-badge teal">نقره ↑</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Crypto</span><span>Chart</span></div>
+            <h3>Wallex — نقره</h3>
+            <p>بنر صرافی آنلاین با نمایش نمودار قیمت و انیمیشن رمزارز</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabdeal Bitcoin -->
+        <div class="wcard anim-up delay-1" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#b45309;--g2:#f59e0b">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">تبدیل</div>
+                <div class="demo-title">₿ Bitcoin</div>
+                <div class="demo-badge gold">LiveAds</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>LiveAds</span><span>Bitcoin</span><span>300x100</span></div>
+            <h3>تبدیل — Bitcoin LiveAds</h3>
+            <p>بنر زنده بیت‌کوین با فرمت لایو ادز و انیمیشن قیمت</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabdeal Candy Crush -->
+        <div class="wcard anim-up delay-2" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#ec4899;--g2:#8b5cf6">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">تبدیل</div>
+                <div class="demo-title">🍭 Playable</div>
+                <div class="demo-badge pink">Interactive</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Playable Ad</span><span>Interactive</span><span>Game</span></div>
+            <h3>تبدیل — Candy Crush Playable Ad</h3>
+            <p>آگهی قابل بازی (Playable Ad) با مکانیک گیم تعاملی کمپین</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technolife BF -->
+        <div class="wcard anim-up" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#0f172a;--g2:#1e3a5f">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner dark-blue">
+                <div class="demo-logo-text">تکنولایف</div>
+                <div class="demo-title">بلک‌فرایدی</div>
+                <div class="demo-badge blue">الکترونیک</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Products</span></div>
+            <h3>تکنولایف — بلک‌فرایدی</h3>
+            <p>بنر کمپین بلک‌فرایدی فروشگاه الکترونیک با نمایش محصولات</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bitpin -->
+        <div class="wcard anim-up delay-1" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#1d4ed8;--g2:#7c3aed">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">بیت‌پین</div>
+                <div class="demo-title">پین جم کن ₿</div>
+                <div class="demo-badge blue">کمپین</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Bitcoin</span><span>Gamified</span></div>
+            <h3>بیت‌پین — پین جم کن</h3>
+            <p>بنر کمپین گیمیفاید با انیمیشن‌های پویا و دعوت به اکشن</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TapsiGarage -->
+        <div class="wcard anim-up delay-2" data-cat="transport">
+          <div class="wcard-thumb" style="--g1:#78350f;--g2:#b45309">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">تپسی گاراژ</div>
+                <div class="demo-title">دیجی‌پی</div>
+                <div class="demo-badge orange">سرویس</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>JS</span><span>Brand Collab</span></div>
+            <h3>تپسی گاراژ — دیجی‌پی</h3>
+            <p>بنر همکاری برند تپسی گاراژ و دیجی‌پی با طراحی دو برند</p>
+            <div class="wcard-meta">
+              <span class="wcat transport">Transport</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Sepah -->
+        <div class="wcard anim-up" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#1e3a8a;--g2:#1d4ed8">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">بانک سپه</div>
+                <div class="demo-title">امید زرین</div>
+                <div class="demo-badge gold">طلا</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Formal</span><span>Gold</span><span>GSAP</span></div>
+            <h3>بانک سپه — امید زرین</h3>
+            <p>بنر رسمی بانکی با طراحی کلاسیک و انیمیشن‌های متناسب برند</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">Banking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Khanoumi BF -->
+        <div class="wcard anim-up delay-1" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#be185d;--g2:#9333ea">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">خانومی</div>
+                <div class="demo-title">بلک‌فرایدی</div>
+                <div class="demo-badge pink">فشن</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Multi-size</span><span>Fashion</span></div>
+            <h3>خانومی — بلک‌فرایدی</h3>
+            <p>بنر فروشگاه فشن با ۴ سایز متفاوت (sticky، 300x100، 300x250، 468x60)</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Okala -->
+        <div class="wcard anim-up delay-2" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#15803d;--g2:#16a34a">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">اوکالا</div>
+                <div class="demo-title">خرید آنلاین</div>
+                <div class="demo-badge green2">سوپر مارکت</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Grocery</span></div>
+            <h3>اوکالا — خرید آنلاین</h3>
+            <p>بنر سوپرمارکت آنلاین با نمایش محصولات و انیمیشن سبد خرید</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Melligold -->
+        <div class="wcard anim-up" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#92400e;--g2:#d97706">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">ملی گلد</div>
+                <div class="demo-title">طلا در چرخشه</div>
+                <div class="demo-badge gold">طلا</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Gold</span><span>Loop</span></div>
+            <h3>ملی گلد — طلا در چرخشه</h3>
+            <p>بنر سرمایه‌گذاری طلا با انیمیشن دورانی و loop خودکار</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">Gold / Finance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nescafe -->
+        <div class="wcard anim-up delay-1" data-cat="other">
+          <div class="wcard-thumb" style="--g1:#7f1d1d;--g2:#dc2626">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">Nescafé</div>
+                <div class="demo-title">طعم جدید</div>
+                <div class="demo-badge red">کافه</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>FMCG</span><span>Product</span></div>
+            <h3>Nescafé — طعم جدید</h3>
+            <p>بنر معرفی محصول با انیمیشن steam و نمایش پویای بسته‌بندی</p>
+            <div class="wcard-meta">
+              <span class="wcat other">FMCG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Saraf Ethereum -->
+        <div class="wcard anim-up delay-2" data-cat="fintech">
+          <div class="wcard-thumb" style="--g1:#4f46e5;--g2:#7c3aed">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">صراف</div>
+                <div class="demo-title">Ethereum</div>
+                <div class="demo-badge purple">ETH</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Crypto</span><span>Ethereum</span><span>GSAP</span></div>
+            <h3>صراف — Ethereum</h3>
+            <p>بنر صرافی با انیمیشن اتریوم و نمایش قیمت لحظه‌ای</p>
+            <div class="wcard-meta">
+              <span class="wcat fintech">FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taline BF Tehran -->
+        <div class="wcard anim-up" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#831843;--g2:#be185d">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">تالین</div>
+                <div class="demo-title">بلک‌فرایدی</div>
+                <div class="demo-badge pink">تهران</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Multi-city</span><span>Fashion</span></div>
+            <h3>تالین — بلک‌فرایدی تهران</h3>
+            <p>بنر فروشگاه فشن با نسخه‌های شهری مختلف و انیمیشن متناسب</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Uranus Yalda -->
+        <div class="wcard anim-up delay-1" data-cat="other">
+          <div class="wcard-thumb" style="--g1:#4c0519;--g2:#9f1239">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">Uranus</div>
+                <div class="demo-title">یلدا</div>
+                <div class="demo-badge red">مناسبتی</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>GSAP</span><span>Yalda</span><span>Seasonal</span></div>
+            <h3>Uranus — یلدا</h3>
+            <p>بنر مناسبتی شب یلدا با انیمیشن‌های سنتی و رنگ‌بندی شب</p>
+            <div class="wcard-meta">
+              <span class="wcat other">Brand / Agency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alibaba Chrome Dino -->
+        <div class="wcard anim-up delay-2" data-cat="shop">
+          <div class="wcard-thumb" style="--g1:#b45309;--g2:#d97706">
+            <div class="wcard-noise"></div>
+            <div class="wcard-demo">
+              <div class="demo-banner">
+                <div class="demo-logo-text">علی‌بابا</div>
+                <div class="demo-title">🦕 Chrome Dino</div>
+                <div class="demo-badge gold">بازی</div>
+              </div>
+            </div>
+            <div class="wcard-hover-overlay">
+              <span class="view-btn">جزئیات پروژه ✦</span>
+            </div>
+          </div>
+          <div class="wcard-info">
+            <div class="wcard-chips"><span>Playable</span><span>Game</span><span>Creative</span></div>
+            <h3>علی‌بابا — Chrome Dino</h3>
+            <p>بنر خلاقانه با گیم‌پلی کروم داینو — یکی از پروژه‌های خاص</p>
+            <div class="wcard-meta">
+              <span class="wcat shop">Travel / Creative</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /wgrid -->
+
+      <!-- More clients -->
+      <div class="more-clients anim-up">
+        <p>و همچنین:</p>
+        <div class="client-tags">
+          <span>اسنپ‌شاپ</span><span>اسنپ‌مارکت</span><span>آذکی‌وام</span>
+          <span>بیمه‌دات‌کام</span><span>مفید</span><span>بانک تجارت</span>
+          <span>بلوبانک</span><span>نوبیتکس</span><span>تبدیل BF</span>
+          <span>GSM</span><span>RBT</span><span>روبی‌گلد</span>
+          <span>داریک گلد</span><span>طلاسی</span><span>سپیدار</span>
+          <span>شهر فرش</span><span>خانومی</span><span>پالاز</span>
+          <span>بوتان</span><span>دلشاد</span><span>لوکس</span>
+          <span>نسکافه</span><span>وزارت اقتصاد</span><span>تاژ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Projects (GitHub) -->
+  <section class="personal-projects" id="projects">
+    <div class="container">
+      <div class="sec-header center anim-up">
+        <span class="tag">گیت‌هاب</span>
+        <h2 class="sec-h2">پروژه‌های شخصی</h2>
+        <p class="sec-sub">پروژه‌هایی که برای یادگیری و تمرین ساختم</p>
+      </div>
+      <div class="pgrid">
+
+        <a class="pcard anim-up" href="https://github.com/haniehrbt/to-do-list" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon react-icon">⚛</div>
+            <span class="pcard-lang react-lang">React</span>
+          </div>
+          <h3>To-Do List</h3>
+          <p>اپلیکیشن مدیریت وظایف با React — استفاده از state، props و component lifecycle</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">React</span>
+            <span class="pcard-date">۱۴۰۴</span>
+          </div>
+        </div>
+
+        <a class="pcard anim-up delay-1" href="https://github.com/haniehrbt/banner" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon js-icon">JS</div>
+            <span class="pcard-lang js-lang">JavaScript</span>
+          </div>
+          <h3>Banner</h3>
+          <p>بنر تبلیغاتی تعاملی — تمرین مهارت‌های GSAP و انیمیشن‌های وب</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">JS / GSAP</span>
+            <span class="pcard-date">۱۴۰۳</span>
+          </div>
+        </div>
+
+        <a class="pcard anim-up delay-2" href="https://github.com/haniehrbt/ketchup" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon js-icon">JS</div>
+            <span class="pcard-lang js-lang">JavaScript</span>
+          </div>
+          <h3>Ketchup</h3>
+          <p>پروژه جاوااسکریپت با تمرکز روی DOM manipulation و رویدادها</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">Vanilla JS</span>
+            <span class="pcard-date">۱۴۰۳</span>
+          </div>
+        </div>
+
+        <a class="pcard anim-up" href="https://github.com/haniehrbt/Shop-template" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon html-icon">H5</div>
+            <span class="pcard-lang html-lang">HTML</span>
+          </div>
+          <h3>Shop Template</h3>
+          <p>تمپلیت فروشگاه آنلاین با HTML، CSS و JS — طراحی ریسپانسیو</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">HTML / CSS / JS</span>
+            <span class="pcard-date">۱۴۰۳</span>
+          </div>
+        </div>
+
+        <a class="pcard anim-up delay-1" href="https://github.com/haniehrbt/miniSlider" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon css-icon">CS</div>
+            <span class="pcard-lang css-lang">CSS</span>
+          </div>
+          <h3>Mini Slider</h3>
+          <p>اسلایدر تصویر ساخته شده با CSS خالص — انیمیشن و transition</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">CSS</span>
+            <span class="pcard-date">۱۴۰۳</span>
+          </div>
+        </div>
+
+        <a class="pcard anim-up delay-2" href="https://github.com/haniehrbt/MouseEvent" target="_blank">
+          <div class="pcard-top">
+            <div class="pcard-icon html-icon">H5</div>
+            <span class="pcard-lang html-lang">HTML</span>
+          </div>
+          <h3>Mouse Events</h3>
+          <p>تمرین رویدادهای موس با جاوااسکریپت — تعامل بصری با کاربر</p>
+          <div class="pcard-foot">
+            <span class="pcard-tag">JS / Events</span>
+            <span class="pcard-date">۱۴۰۳</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="github-cta anim-up">
+        <a href="https://github.com/haniehrbt" target="_blank" class="btn-outline">
+          مشاهده همه در گیت‌هاب ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-glow-blob"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left anim-up">
+          <span class="tag">همکاری</span>
+          <h2 class="sec-h2">یه ایده داری؟<br><em>بیا باهم</em> بسازیمش</h2>
+          <p class="contact-sub">برای پروژه‌های جدید، همکاری یا هر سوالی، از هر کانالی راحتی پیام بده.</p>
+          <div class="c-links">
+            <a href="mailto:hnieh.rbt@gmail.com" class="c-link">
+              <span class="cl-ico">✉</span>
+              <div>
+                <strong>ایمیل</strong>
+                <span>hnieh.rbt@gmail.com</span>
+              </div>
+              <span class="cl-arr">↗</span>
+            </a>
+            <a href="tel:09927076729" class="c-link">
+              <span class="cl-ico">📞</span>
+              <div>
+                <strong>تلفن</strong>
+                <span>۰۹۹۲۷۰۷۶۷۲۹</span>
+              </div>
+              <span class="cl-arr">↗</span>
+            </a>
+            <a href="https://github.com/haniehrbt" target="_blank" class="c-link">
+              <span class="cl-ico">⌥</span>
+              <div>
+                <strong>گیت‌هاب</strong>
+                <span>github.com/haniehrbt</span>
+              </div>
+              <span class="cl-arr">↗</span>
+            </a>
+          </div>
+          <div class="avail">
+            <span class="avail-dot"></span>
+            الان آماده همکاری هستم
+          </div>
+        </div>
+
+        <form class="c-form anim-up delay-2" id="cf">
+          <div class="cf-row2">
+            <div class="cf-field">
+              <label>اسمت چیه؟</label>
+              <input type="text" placeholder="مثلاً: علی رضایی" />
+            </div>
+            <div class="cf-field">
+              <label>ایمیل</label>
+              <input type="email" placeholder="example@gmail.com" />
+            </div>
+          </div>
+          <div class="cf-field">
+            <label>پروژه‌ات رو توضیح بده</label>
+            <textarea rows="5" placeholder="می‌خوام یه بنر برای کمپین..."></textarea>
+          </div>
+          <button type="submit" class="btn-glow btn-full magnetic">
+            <span class="btn-txt">ارسال ✦</span>
+            <span class="btn-shine"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <span class="logo">HR<span class="logo-dot">.</span></span>
+        <p>هانیه رباطی — فرانت‌اند دولوپر — ۱۴۰۴</p>
+        <a href="#hero" class="back-top">↑ بازگشت به بالا</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
