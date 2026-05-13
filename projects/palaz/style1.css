@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Peyda-Black';
+  src: url('./Peyda-Black.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Peyda-Thin';
+  src: url('./Peyda-Thin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bg {
+  height: 110px;
+  width: 95vw;
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+  z-index: -1;
+  background-color: #ea2429;
+  border-radius: 10px 0 0 10px;
+}
+
+.bg1 {
+  position: fixed;
+  z-index: 0;
+  height: 120px;
+  left: 20px;
+  bottom: 20px;
+}
+
+.halfBg {
+  position: fixed;
+  bottom: 10px;
+  right: 8px;
+  height: 136px;
+  z-index: 1;
+  -moz-border-radius-bottomright: 15px;
+}
+
+.text {
+  position: fixed;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  /*border: 2px solid red;*/
+  height: 60px;
+  bottom: 55px;
+  color: white;
+}
+
+.copy {
+  line-height: 23px;
+  font-family: Peyda-Black;
+}
+
+.title {
+  font-family: Peyda-Thin;
+  display: inline-block;
+  margin-bottom: -2px;
+}
+
+.cta {
+  position: fixed;
+  bottom: 15px;
+  right: 18px;
+  animation: pulse 1s infinite;
+}
+.product {
+  position: fixed;
+  z-index: 1;
+  height: 110px;
+  left: 27px;
+  bottom: 26px;
+}
+.pic2 {
+  opacity: 0;
+}
+.pic3 {
+  opacity: 0;
+}
+
+.mirror {
+  transform: scale(1, -1);
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

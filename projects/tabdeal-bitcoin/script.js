@@ -38,30 +38,39 @@ function toPersianDigits(number) {
 //
 // set_now_price();
 
+const FALLBACK_TODAY = [
+  {hour:'ساعت ۱',price:62800},{hour:'ساعت ۳',price:63100},{hour:'ساعت ۵',price:62500},
+  {hour:'ساعت ۷',price:63400},{hour:'ساعت ۹',price:64200},{hour:'ساعت ۱۱',price:65100},
+  {hour:'ساعت ۱۳',price:64800},{hour:'ساعت ۱۵',price:65600},{hour:'ساعت ۱۷',price:66200},
+  {hour:'ساعت ۱۹',price:65900},{hour:'ساعت ۲۱',price:66700},{hour:'ساعت ۲۳',price:67100},
+];
+
 async function set_today_datas() {
-  const res = await fetch(API_THIS_DAY);
-  const body = await res.json();
-  for (const row of body) {
-    if (row.hour == 24) {
-      continue;
+  try {
+    const res = await fetch(API_THIS_DAY);
+    const body = await res.json();
+    for (const row of body) {
+      if (row.hour == 24) continue;
+      data_today.push({ hour: `ساعت ${row.hour}`, price: row.price });
     }
-    data_today.push({ hour: `ساعت ${row.hour}`, price: row.price });
+    if (!data_today.length) throw new Error('empty');
+    const price_response = Number.parseInt(data_today[data_today.length - 1].price).toLocaleString('fa-IR');
+    const price_text = `${price_response}` + ' USDT';
+    if (price_text !== current_price_element.innerText) {
+      gsap.to(current_price_element, {
+        duration: 0.5, opacity: 0,
+        onComplete: () => {
+          current_price_element.innerText = price_text;
+          gsap.to(current_price_element, { duration: 0.5, opacity: 1 });
+        },
+      });
+    }
+    init_chart(data_today);
+  } catch (_) {
+    data_today = FALLBACK_TODAY;
+    if (current_price_element) current_price_element.innerText = '۶۷,۱۰۰ USDT';
+    init_chart(data_today);
   }
-  const price_response = Number.parseInt(
-    data_today[data_today.length - 1].price
-  ).toLocaleString('fa-IR');
-  const price_text = `${price_response}` + ' USDT';
-  if (price_text !== current_price_element.innerText) {
-    gsap.to(current_price_element, {
-      duration: 0.5,
-      opacity: 0,
-      onComplete: () => {
-        current_price_element.innerText = price_text;
-        gsap.to(current_price_element, { duration: 0.5, opacity: 1 });
-      },
-    });
-  }
-  init_chart(data_today);
 }
 
 set_today_datas();
