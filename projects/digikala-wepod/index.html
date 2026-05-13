@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="tags.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style2.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="bg">
+      <img src="./logo.svg" class="logo" />
+      <img src="./pattern1.png" class="pattern1" />
+      <img src="./pattern2.png" class="pattern2" />
+      <img src="./overline1.png" class="overline" />
+      <img src="./gifts1.png" class="gifts" />
+    </div>
+
+    <img src="./coin2.png" class="coin diffused diffused-0" />
+    <img src="./coin3.png" class="coin diffused diffused-1" />
+    <img src="./coin.png" class="coin diffused diffused-2" />
+    <img src="./coin3.png" class="coin diffused diffused-3" />
+    <img src="./coin.png" class="coin diffused diffused-4" />
+
+    <div class="mainContainer">
+      <img src="./person1-1.png" class="person1" />
+      <img src="./person2-1.png" class="person2" />
+      <img src="./phone.png" class="phone" />
+    </div>
+
+    <div class="finalSlide" style="display: none">
+      <img src="./lastSlideCopy.png" class="lastSlideCopy" />
+      <img src="./cta1.png" class="cta" />
+      <img src="./box.png" class="infoBox" />
+    </div>
+    <script src="script3.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>
