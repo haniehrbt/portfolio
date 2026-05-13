@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./tags.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title></title>
+    <link href="style2.css" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="./bg.png" class="bg" />
+    <img src="./logo.svg" class="logo" />
+    <div class="right">
+      <div class="topRight">
+        <img src="./title.svg" class="title" />
+        <img src="./date.svg" class="date" />
+      </div>
+      <div class="bottomRight">
+        <img src="offer1.svg" class="offer" />
+        <img src="./cta.svg" class="cta" />
+      </div>
+    </div>
+    <div class="left">
+      <div class="productContainer">
+        <img src="./product1.png" class="product" />
+        <img src="./product2.png" class="product" />
+        <img src="./product3.png" class="product" />
+        <img src="./product4.png" class="product" />
+        <img src="./bage.png" class="bage" data-product="1" />
+        <img src="./productShadow.png" class="productShadow" />
+      </div>
+      <div class="stageContainer">
+        <img src="./stage.png" class="stage" />
+        <img src="./stageShadow.png" class="stageShadow" />
+      </div>
+    </div>
+    <img src="./light.png" class="light" />
+    <div class="videoContainer">
+      <video loop autoplay muted playsinline class="video">
+        <source src="./bgvideo.mp4" />
+      </video>
+    </div>
+    <script src="script3.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>
