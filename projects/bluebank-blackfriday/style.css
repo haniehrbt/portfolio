@@ -1,0 +1,169 @@
+.content {
+  opacity: 0;
+  position: fixed;
+  z-index: -9999999999;
+  right: 15px;
+  bottom: 0;
+  top: 0;
+  /*border: 1px solid red;*/
+  width: 100px;
+  height: 120px;
+  overflow-y: hidden;
+}
+
+.item {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /*border: 2px solid blue;*/
+  height: 120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'sahel', sans-serif;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  scrollbar-color: transparent transparent;
+}
+
+.productsContainer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(calc(-50% + 20px));
+  height: 150px;
+  width: 129.31px;
+  bottom: 200px;
+  /*border: 1px solid red;*/
+}
+
+.textContainer {
+  position: fixed;
+  right: 7.5%;
+  bottom: 0;
+  height: 107px;
+  width: 85%;
+  /*background: red;*/
+}
+
+.bg {
+  position: fixed;
+  bottom: 0;
+  left: 1.5%;
+  width: 97%;
+  height: 107px;
+  z-index: -100;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  object-fit: cover;
+  transform: scaleX(0);
+  transform-origin: center center;
+}
+
+.bg img {
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+}
+
+.logo {
+  position: fixed;
+  right: 7.5%;
+  bottom: -100px;
+  z-index: -200;
+  width: 85px;
+}
+
+.product {
+  position: absolute;
+  width: 84.21px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 95%;
+  animation: rotate 1s linear infinite;
+  transform-origin: top;
+}
+
+.bag-shadow {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: -999;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 2deg;
+  }
+  50% {
+    rotate: -2deg;
+  }
+  100% {
+    rotate: 2deg;
+  }
+}
+
+.cta {
+  position: absolute;
+  right: 0;
+  bottom: 17px;
+  opacity: 0;
+  width: 60px;
+  transform-origin: center;
+  animation: tapesh 1s linear infinite;
+}
+
+.header {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  width: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.brand {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.brand-overline {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.overline {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

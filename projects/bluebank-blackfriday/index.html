@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="tags.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="content">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </section>
+
+    <div class="productsContainer">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="product" src="product4.png" />
+        <img class="product" src="product3.png" />
+        <img class="product" src="product1.png" />
+        <img class="product" src="product2.png" />
+        <img class="bag-shadow" src="bag-shadow.png" />
+      </div>
+    </div>
+
+    <div class="textContainer">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="header" src="header-red.svg" />
+        <img class="header" src="header-blue.svg" />
+        <img class="header" src="header-purple.svg" />
+        <img class="header" src="header-green.svg" />
+        <img class="cta" src="cta.svg" />
+
+        <img class="brand-overline" src="overline-snappshop.svg" />
+        <img class="brand" src="logo-snappshop.svg" />
+
+        <img class="brand-overline" src="overline-filmnet.svg" />
+        <img class="brand" src="logo-filmnet.svg" />
+
+        <img class="brand-overline" src="overline-otagh.svg" />
+        <img class="brand" src="logo-otagh.svg" />
+
+        <img class="brand" src="logo-positron.svg" />
+        <img class="brand-overline" src="overline-positron.svg" />
+
+        <img class="brand-overline" src="overline-kia.svg" />
+        <img class="brand" src="loog-kia.svg" />
+
+        <img class="brand" src="logo-toytoy.svg" />
+        <img class="brand-overline" src="overline-toytoy.svg" />
+
+        <img class="overline" src="overline-red.svg" />
+        <img class="overline" src="overline-blue.svg" />
+        <img class="overline" src="overline-purple.svg" />
+        <img class="overline" src="overline-green.svg" />
+      </div>
+    </div>
+
+    <img src="bg.svg" class="bg" />
+
+    <img class="logo" src="logo.svg" />
+  </body>
+  <script src="script2.js"></script>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>
