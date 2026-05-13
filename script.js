@@ -62,7 +62,7 @@ document.querySelectorAll('a, button, .wcard, .f-btn').forEach(el => {
   });
   heroEl.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
 
-  const COLORS = ['#8b5cf6','#a78bfa','#c4b5fd','#22d3ee','#67e8f9'];
+  const COLORS = ['#10b981','#34d399','#6ee7b7','#22d3ee','#06b6d4'];
 
   class Particle {
     constructor() { this.reset(true); }
@@ -115,7 +115,7 @@ document.querySelectorAll('a, button, .wcard, .f-btn').forEach(el => {
         if (d < 80) {
           ctx.save();
           ctx.globalAlpha = (1 - d/80) * 0.12;
-          ctx.strokeStyle = '#a78bfa';
+          ctx.strokeStyle = '#10b981';
           ctx.lineWidth   = 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
