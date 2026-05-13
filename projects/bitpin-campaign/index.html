@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="tags.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <img class="box box-open" src="box-open.png" />
+    <img class="box box-close" src="box-close.png" />
+    <img class="bitcoin-box-bg" src="bitcoin-box-bg.svg" />
+    <img class="bitcoin-box" src="bitcoin-box.png" />
+
+    <div class="bg-slide1"></div>
+
+    <img class="overline-slide1" src="overline-slide1edit2.svg" />
+    <img class="slide1-arrows" src="slide1-arrows.png" />
+
+    <img class="pin" src="pin.png" />
+
+    <div class="logoContainer">
+      <img class="overline-slide2" src="overline-slide2.svg" />
+      <img class="logo" src="logo.svg" />
+    </div>
+    <div class="cardsContainer">
+      <div class="card pulse">
+        <img class="pin-mini" src="pin.png" />
+        <img class="cardPic" src="" />
+      </div>
+      <div class="card pulse">
+        <img class="pin-mini" src="pin.png" />
+        <img class="cardPic" src="" />
+      </div>
+      <div class="card pulse">
+        <img class="pin-mini" src="pin.png" />
+        <img class="cardPic" src="" />
+      </div>
+    </div>
+
+    <img class="spinner" src="spinner.svg" />
+    <div class="overline-slide3">
+      <img src="overline-slide3.svg" />
+    </div>
+
+    <img class="float float1" src="float1.svg" />
+    <img class="float float2" src="float2.svg" />
+    <img class="float float3" src="float3.svg" />
+    <img class="float float4" src="float4.svg" />
+    <img class="pin-float" src="pin-float.svg" />
+
+    <img class="flight flight-lefttoright" src="flight-pin.png" />
+    <img class="flight flight-righttoleft" src="flight-pin.png" />
+
+    <script src="script.js"></script>
+  </body>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>
