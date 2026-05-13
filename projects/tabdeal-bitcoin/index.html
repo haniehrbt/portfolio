@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="tags.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="chart.umd.min.js"></script>
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <div class="timeBox">
+      <div class="segmented-control">
+        <input type="radio" name="time" id="24hours" checked />
+        <label for="24hours" class="hours checked"> امروز </label>
+        <input type="radio" name="time" id="lastWeek" />
+        <label for="lastWeek" class="lastWeek">هفته گذشته</label>
+        <input type="radio" name="time" id="lastMonth" />
+        <label for="lastMonth" class="lastMonth">ماه گذشته</label>
+      </div>
+    </div>
+    <div class="number">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1vw;
+          margin-right: -2vw;
+        "
+      >
+        <!--        <div style="-->
+        <!--        margin-right: auto;-->
+        <!--                width: 1vw;-->
+        <!--                height: 1vw;-->
+        <!--                border-radius: 100%;-->
+        <!--                background: #a48118;-->
+        <!--                box-shadow: 0 0 5px #a48118;-->
+        <!--                transform-origin: center;-->
+        <!--                animation:pulse 1s infinite alternate;">-->
+        <!--        </div>-->
+        <p class="price" dir="ltr">۱۱۸٬۶۷۷ USDT</p>
+      </div>
+      <p class="number-overline">قیمت لحظه‌ای بیت کوین</p>
+    </div>
+    <img class="logo" src="logo.svg" />
+
+    <div class="canvasContainer">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <button class="" dir="ltr">
+      <div class="svg-wrapper-1">
+        <div class="svg-wrapper">
+          <svg
+            height="1em"
+            viewBox="0 0 90 59"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M81.408 0H8.08478C3.61965 0 0 3.67377 0 8.20565V50.0017C0 54.5336 3.61965 58.2074 8.08478 58.2074H81.408C85.8731 58.2074 89.4928 54.5336 89.4928 50.0017V46.6222H79.8946C79.4663 49.6966 76.6787 51.8557 73.6376 51.4522C70.577 51.0459 68.4206 48.1983 68.8209 45.0923C69.2208 41.986 72.0264 39.7973 75.087 40.2032C77.6342 40.5414 79.5537 42.5713 79.8957 45.0332H89.4928V8.20565C89.4928 3.67376 85.8731 0 81.408 0ZM30.7386 0.00039054H32.3042V6.01501L35.402 9.15951C36.5293 8.29866 37.976 7.86707 39.4852 8.06749C42.5458 8.47379 44.7023 11.321 44.302 14.4273C43.9017 17.5333 41.0964 19.722 38.0358 19.3161C34.9756 18.9098 32.8188 16.0626 33.2191 12.9562C33.3487 11.9491 33.7325 11.0396 34.2946 10.2826L30.7386 6.67349V0.00039054ZM15.6707 12.9562C16.0035 10.371 18.0035 8.42241 20.4292 8.07566V0.00039054H21.9947V8.07683C25.0243 8.51115 27.1512 11.3408 26.7536 14.4273C26.3533 17.5333 23.5477 19.722 20.4875 19.3161C17.4269 18.9098 15.2704 16.0626 15.6707 12.9562ZM79.2853 15.6018C64.6499 31.9201 46.8607 43.9824 33.5646 50.8209C31.4549 51.9067 29.4549 51.5592 27.4875 50.2901C20.8774 46.024 13.0024 39.0256 7.52573 29.675C7.04106 28.8472 6.67795 27.4326 8.04376 26.5235C9.12007 25.8059 10.4007 26.2989 11.0173 27.1683C14.405 31.9497 20.308 35.5989 26.8153 36.4641C30.8544 36.9988 35.6187 36.1029 38.3445 35.0926C51.8032 30.1074 64.5298 21.8161 76.8551 12.0121C77.2301 11.7148 78.5928 11.4132 79.546 12.5099C80.6703 13.8043 79.6089 15.2422 79.2853 15.6018Z"
+            />
+          </svg>
+        </div>
+      </div>
+      <span>خرید بیت‌کوین</span>
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>
