@@ -19,7 +19,6 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 80%;
     height: 10px;
     border-radius: 999px;
@@ -39,61 +38,55 @@ body {
 
 .gradient-fill {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 2%;
-    height: 100%;
+    top: 2px;
+    right: 3px;
+    width: 0;
+    height: calc(100% - 5px);
+    border-radius: 999px;
     z-index: 2;
-    background: linear-gradient(
-            90deg,
-            rgba(111, 63, 156, 1) 3%,
-            rgba(57, 15, 116, 1) 28%,
-            rgba(90, 37, 204, 1) 53%,
-            rgba(147, 98, 232, 1) 83%,
-            rgba(188, 144, 235, 1) 100%
-    );
+    background: #5AD941;
+    background: linear-gradient(90deg, rgba(90, 217, 65, 1) 9%, rgba(100, 176, 84, 1) 28%, rgba(78, 138, 66, 1) 63%, rgba(177, 215, 169, 1) 100%);
 }
-
 .bg-overlay {
     position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(100%) scaleX(0);
-    width: 90%;
+    transform: translateX(-50%);
+    width: 98%;
     height: 83%;
     background: linear-gradient(90deg, rgba(145, 81, 217, 1) 0%, rgba(95, 36, 162, 1) 100%);
     border-radius: 20px 20px 0 0;
-    z-index: 0;
+    z-index: 4;
     opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .logo2 {
-    position: absolute;
-    bottom: 108px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 141px;
-    height: auto;
+    position: fixed;
     opacity: 0;
-    z-index: 2;
+    z-index: 8;
+    width: 115px;
+    height: auto;
 }
 
 .overline {
-    position: absolute;
-    bottom: 88px;
-    height: 23px;
+    position: fixed;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    direction: rtl;
+    text-align: center;
+    white-space: nowrap;
     opacity: 0;
+    z-index: 8;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
 }
-
 .cta {
-    position: absolute;
-    bottom: 61px;
-    width: 69.51px;
+    position: fixed;
     opacity: 0;
+    z-index: 8;
 }
 
 .logo {
@@ -108,8 +101,14 @@ body {
     position: absolute;
     right: -200px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     z-index: 3;
+}
+
+.carBody {
+    position: relative;
+    display: inline-block;
+    transform-origin: center bottom;
 }
 
 .car {
@@ -121,53 +120,56 @@ body {
 
 .stats-box {
     position: absolute;
-    right: 44px;
-    top: 74px;
-    min-width: 62px;
-    height: 24px;
-    padding: 0 10px;
+    left: 50%;
+    top: 60px;
+    white-space: nowrap;
+    height: 22px;
+    padding: 0 9px;
     border-radius: 999px;
-    background: #ffffff;
-    color: #4f1d88;
+    background: #6421A1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 4px;
     font-weight: 700;
-    z-index: 3;
-    box-shadow: 0 4px 10px rgba(30, 3, 56, 0.22);
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(30, 3, 56, 0.25);
     opacity: 0;
 }
 
 .wheel {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    z-index: 1;
+    width: 25px;
+    height: 23px;
+    z-index: 900;
     opacity: 1;
     transform-origin: 50% 50%;
 }
 
-/* car2.png is 1024×351. At width:130px scale=0.127.
-   Front wheel center in src ≈ (175,293) → rendered ≈ (22,37)
-   Back  wheel center in src ≈ (838,293) → rendered ≈ (106,37)
-   offset by half wheel size (9px) */
+
 .wheel-front {
-    left: 13px;
+    left: 10px;
     top: 28px;
 }
 
 .wheel-back {
-    left: 97px;
+    left: 91px;
     top: 28px;
 }
 
 .stats-number {
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: 800;
     line-height: 1;
+    min-width: 14px;
+    text-align: center;
+    color: #64B054;
 }
 
-.stats-percent {
-    font-size: 13px;
+.stats-label {
+    font-size: 11px;
+    font-weight: 600;
     line-height: 1;
+    direction: rtl;
+    color: #64B054;
 }

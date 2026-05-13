@@ -1,56 +1,51 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="tags.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script>
-    if (!window.gsap) {
-      document.write('<script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"><\/script>');
-    }
-  </script>
-  <title>Document</title>
-  <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="tags.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-<img src="./logo.png" class="logo" />
-<div class="bg-overlay">
-  <img src="./logo2.png" class="logo2" />
-  <img src="./overline.svg" class="overline" />
-  <img src="./cta.png" class="cta">
-</div>
+<div class="bg-overlay"></div>
+<img src="./logo.png" class="logo2"/>
+<span class="overline">بیمه شخص ثالث با <span style="color:#53FE43">۱۶ درصد</span> تخفیف</span>
+<img src="./cta.png" class="cta">
 <div class="bar">
-  <img src="./barContainer.png" class="barContainer" />
-  <div class="gradient-fill"></div>
+    <img src="./barContainer.png" class="barContainer"/>
+    <div class="gradient-fill"></div>
 </div>
 
 <div class="carContainer">
-  <img src="./car2.png" class="car">
-  <img src="./02.png" class="wheel wheel-front" alt="">
-  <img src="./02.png" class="wheel wheel-back" alt="">
-  <div class="stats-box">
-    <span class="stats-number">12</span>
-    <span class="stats-percent">٪</span>
-  </div>
+    <div class="carBody">
+        <img src="./car2.png" class="car">
+        <img src="./02.png" class="wheel wheel-front" alt="">
+        <img src="./02.png" class="wheel wheel-back" alt="">
+    </div>
+    <div class="stats-box">
+        <span class="stats-number">۰</span>
+        <span class="stats-label">درصد تخفیف</span>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
 <script>
-  function getParameterByName(name) {
-    name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
-    var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null
-      ? ''
-      : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  }
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+            ? ''
+            : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
 
-  click_url = getParameterByName('click_url');
-  if (click_url) {
-    document.addEventListener('click', function() {
-      open(click_url);
-    });
-  }
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+        document.addEventListener('click', function () {
+            open(click_url);
+        });
+    }
 </script>
 </html>
