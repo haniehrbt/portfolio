@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="tags.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card-bg">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="card-points" src="points.svg" />
+        <div class="white-bg"></div>
+        <p class="badge skeleton" dir="rtl">۹۹٪ درصد</p>
+        <p class="price skeleton" dir="rtl">25,090,000 تومان</p>
+        <p class="old-price skeleton" dir="rtl">250,900,000 تومان</p>
+
+        <p class="title skeleton" dir="rtl">
+          گوشی موبایل iPhone 17 Pro Max 256Gb
+        </p>
+
+        <img class="card-bg-img" src="card-bg.svg" />
+
+        <img class="count-down-bg" src="count-down-bg.png" />
+
+        <p class="seconds"></p>
+        <p class="minutes"></p>
+        <img
+          class="product skeleton"
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1NiAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjUwIiBmaWxsPSIjRTVFN0VCIi8+Cjwvc3ZnPgo="
+        />
+        <!--             src="https://www.technolife.com/image/color_image_TLP-149697_ffa600_af790049-ca9e-4c78-86d4-5d8bcf0c2024.png"/>-->
+      </div>
+    </div>
+
+    <div class="video">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="video-points" src="points.svg" />
+
+        <div class="right-container">
+          <img class="overline" src="overline.png" />
+          <img class="header" src="header.png" />
+          <img class="logo" src="logo.svg" />
+        </div>
+
+        <video
+          class="video1"
+          muted=""
+          playsinline=""
+          loop=""
+          autoplay=""
+          webkit-playsinline
+          disablepictureinpicture
+          x-webkit-airplay="deny"
+        >
+          <source src="./techno_compressed.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <img class="person person1" src="person1.png" />
+    <img class="person person2" loading="lazy" src="person2.png" />
+    <img class="person person3" loading="lazy" src="person3.png" />
+  </body>
+  <script src="script.js"></script>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>
