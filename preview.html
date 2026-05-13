@@ -129,6 +129,28 @@
       border: none;
     }
 
+    /* Responsive scale wrapper: scales the 150px banner to fit mobile screens */
+    .scale-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .banner-frame-wrap { max-width: 100%; }
+      .scale-wrap {
+        position: relative;
+        height: 0;
+        padding-bottom: calc(150px * 100% / 600px);
+      }
+      .scale-wrap .banner-iframe {
+        position: absolute;
+        top: 0; left: 0;
+        width: 600px;
+        height: 150px;
+        transform-origin: top left;
+        transform: scale(calc(100vw / 600));
+      }
+    }
+
     .hint {
       font-size: 12px;
       color: var(--muted);
@@ -189,12 +211,14 @@
         <div class="loading-overlay" id="loading">
           <div class="spinner"></div>
         </div>
-        <iframe
-          class="banner-iframe"
-          id="banner-frame"
-          sandbox="allow-scripts allow-same-origin allow-popups"
-          scrolling="no"
-        ></iframe>
+        <div class="scale-wrap">
+          <iframe
+            class="banner-iframe"
+            id="banner-frame"
+            sandbox="allow-scripts allow-same-origin allow-popups"
+            scrolling="no"
+          ></iframe>
+        </div>
       </div>
     </div>
 

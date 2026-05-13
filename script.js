@@ -284,6 +284,22 @@ document.querySelectorAll('.f-btn').forEach(btn => {
 });
 
 /* ─────────────────────────────────────────
+   WCARD: inject live banner iframes
+───────────────────────────────────────── */
+document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
+  const p = new URLSearchParams(thumb.getAttribute('data-preview')).get('p');
+  if (!p) return;
+  const iframe = document.createElement('iframe');
+  iframe.src = p + '/index.html';
+  iframe.className = 'thumb-iframe';
+  iframe.loading = 'lazy';
+  iframe.scrolling = 'no';
+  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+  iframe.tabIndex = -1;
+  thumb.insertBefore(iframe, thumb.querySelector('.wcard-hover-overlay'));
+});
+
+/* ─────────────────────────────────────────
    WCARD CLICK → PREVIEW
 ───────────────────────────────────────── */
 document.querySelectorAll('.wcard').forEach(card => {
