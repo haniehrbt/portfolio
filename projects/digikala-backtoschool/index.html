@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="tags.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="slide2">
+      <img src="shadow-bg.png" class="shadow-bg1" />
+      <div class="left">
+        <img src="grouppProducts.png" class="grouppProducts" />
+      </div>
+      <img src="./logo.png" class="logo" />
+      <img src="./overline.svg" class="overline" />
+      <img src="./cta.svg" class="cta" />
+      <img src="./attach.png" class="attach" />
+    </div>
+
+    <div class="slide1">
+      <div class="bgContainer">
+        <img src="shadow-bg.png" class="shadow-bg" />
+      </div>
+
+      <div class="button-container">
+        <img src="./right-button.svg" class="right-button" />
+        <img src="./left-button.svg" class="left-button" />
+      </div>
+      <div class="magnetContainer">
+        <img src="./magnet.png" class="magnet" />
+      </div>
+
+      <div class="right">
+        <img src="./note.png" class="note" />
+      </div>
+      <img
+        src="back-carousel-.png"
+        class="back-carousel"
+        alt="background carousel"
+      />
+
+      <div class="CarouselContainer">
+        <div class="carousel-wrapper">
+          <div class="product" data-index="0">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product1.png" alt="Product 1" />
+          </div>
+
+          <div class="product" data-index="1">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product2.png" alt="Product 2" />
+          </div>
+
+          <div class="product" data-index="2">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product3.png" alt="Product 3" />
+          </div>
+
+          <div class="product" data-index="3">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product4.png" alt="Product 4" />
+          </div>
+
+          <div class="product" data-index="4">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product5.png" alt="Product 5" />
+          </div>
+
+          <div class="product" data-index="5">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product6.png" alt="Product 6" />
+          </div>
+
+          <div class="product" data-index="6">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product7.png" alt="Product 7" />
+          </div>
+
+          <div class="product" data-index="7">
+            <img src="./stage.png" class="stage" alt="stage" />
+            <img src="./product8.png" alt="Product 8" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>
