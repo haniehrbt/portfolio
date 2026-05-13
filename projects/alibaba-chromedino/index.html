@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>Chrome Dino Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="game-over" id="gameOver">
+      <img src="gameover.svg" class="game-over-img" alt="Game Over" />
+      <p class="score1"></p>
+      <p class="score2"></p>
+      <p class="score3"></p>
+      <p class="scoreYou"></p>
+      <img id="resetBtn" src="reset.svg" alt="Reset" />
+      <img id="cta" class="cta" src="cta.svg" alt="cta" />
+    </div>
+
+    <div class="city-background-color"></div>
+    <div class="city-background"></div>
+    <div class="container">
+      <div class="game-area">
+        <canvas id="gameCanvas"></canvas>
+        <img class="track" src="Track2.png" alt="Track" />
+        <img class="score-bg" src="score-bg.svg" />
+        <div class="score">
+          امتیاز شما:
+          <span id="score">0</span>
+        </div>
+        <img class="gate" src="gate.svg" />
+        <img class="unmute" src="unmute.svg" />
+        <div class="unmute-icon"></div>
+
+        <img class="logo" src="logo.svg" />
+      </div>
+    </div>
+    <img class="start-screen" id="startScreen" src="startbtn.svg" />
+    <img class="box1" src="box1.svg" />
+    <img class="box2" src="box2.svg" />
+    <script defer src="script2.js"></script>
+  </body>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>
