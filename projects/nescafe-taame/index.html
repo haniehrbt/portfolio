@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>uranus-agency.ir</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <script src="tags.js"></script>
+
+    <div class="cafe">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="cafe-full" src="cafe-full.png" />
+        <img class="cafe-empty-front" src="cafe-empty-front.png" />
+        <img class="cafe-empty-back" src="cafe-empty-back.png" />
+        <img class="smoke" src="smoke.gif" />
+        <img class="poodr" src="poodr.png" />
+      </div>
+    </div>
+    <img class="bg" src="bg.png" />
+    <img class="bg-front" src="bg-front.png" />
+
+    <img class="logo" src="logo.png" />
+    <img class="overline" src="overline.png" />
+    <img class="cta tapesh2" src="cta.svg" />
+
+    <img class="product product1" src="product1.png" />
+    <img class="product product2" src="product2.png" />
+    <img class="product product3" src="product3.png" />
+    <img class="product product4" src="product4.png" />
+
+    <img class="productX" src="productX.png" />
+    <img class="hand" src="hand.svg" />
+
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>
