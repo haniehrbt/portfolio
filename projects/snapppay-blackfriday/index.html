@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="tags.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img class="sound" src="sound.png" />
+    <div class="gradient"></div>
+    <div class="gif-container">
+      <div style="position: relative; width: 100%; height: 100%">
+        <div class="white-card"></div>
+        <div class="product-container"></div>
+      </div>
+    </div>
+
+    <img class="bg" src="bg.png" />
+
+    <div class="logo-Container">
+      <div
+        style="
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          gap: 5px;
+        "
+      >
+        <img src="snapp.svg" />
+        <img src="line.svg" />
+        <img class="brand" src="techno.svg" />
+      </div>
+      <img class="cta" src="cta.svg" />
+    </div>
+
+    <div class="intro-logo">
+      <img src="snapp.svg" />
+      <img src="line.svg" />
+      <img class="brand" src="techno.svg" />
+    </div>
+
+    <div class="countdown-container">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="countdown-bg" src="countdown-bg.png" />
+        <p class="txt day">۷</p>
+        <p class="txt hour">۱۲</p>
+        <p class="txt minute">۳۲</p>
+        <p class="txt second">۲</p>
+      </div>
+    </div>
+
+    <img class="percent" src="percent.gif" />
+
+    <div class="texts-container">
+      <div
+        style="
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          gap: 5px;
+        "
+      >
+        <img class="header" src="header.png" />
+        <img class="overline" src="techno-overline.png" />
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>
