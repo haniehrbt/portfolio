@@ -160,12 +160,14 @@ const toPersian = n =>
 function animateCounters() {
   document.querySelectorAll('.stat-n').forEach(el => {
     const target = parseInt(el.dataset.to);
+    const suffix = el.nextSibling && el.nextSibling.textContent === '+' ? '' : '';
     const duration = 1800;
     const start = performance.now();
     function step(now) {
       const p = Math.min((now - start) / duration, 1);
       const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = toPersian(Math.round(target * ease));
+      const val = Math.round(target * ease);
+      el.textContent = val + (target >= 10 ? '+' : '');
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -278,6 +280,28 @@ document.querySelectorAll('.f-btn').forEach(btn => {
       const match = f === 'all' || card.dataset.cat === f;
       card.classList.toggle('hidden', !match);
     });
+  });
+});
+
+/* ─────────────────────────────────────────
+   WCARD CLICK → PREVIEW
+───────────────────────────────────────── */
+document.querySelectorAll('.wcard').forEach(card => {
+  const thumb = card.querySelector('.wcard-thumb[data-preview]');
+  if (!thumb) return;
+  const params = thumb.getAttribute('data-preview');
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    window.open('preview.html?' + params, '_blank');
+  });
+  // Show cursor feedback
+  card.addEventListener('mouseenter', () => {
+    const overlay = card.querySelector('.wcard-hover-overlay');
+    if (overlay) overlay.style.opacity = '1';
+  });
+  card.addEventListener('mouseleave', () => {
+    const overlay = card.querySelector('.wcard-hover-overlay');
+    if (overlay) overlay.style.opacity = '0';
   });
 });
 
