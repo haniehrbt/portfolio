@@ -167,6 +167,15 @@ function continueTimeline() {
     },
     shiftStartTime
   );
+
+  // Auto-cycle for preview (yn-window-scroll only works in production)
+  if (!window._okalaAutoCycle) {
+    window._okalaAutoCycle = setInterval(() => {
+      const next = (currentSlideNumber + 1) % products.length;
+      handleProduct(currentSlideNumber, next);
+      currentSlideNumber = next;
+    }, 2000);
+  }
 }
 
 function startTimeline() {

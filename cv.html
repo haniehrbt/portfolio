@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanieh Robati — Front-End Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --border:    #21262d;
+      --accent:    #58a6ff;
+      --accent2:   #3d8bcd;
+      --text:      #e6edf3;
+      --muted:     #8b949e;
+      --tag-bg:    #1c2a3a;
+      --tag-text:  #79c0ff;
+      --green:     #3fb950;
+    }
+
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      .page { box-shadow: none !important; max-width: 100% !important; margin: 0 !important; }
+      :root {
+        --bg: #fff; --surface: #f6f8fa; --border: #d0d7de;
+        --accent: #0969da; --text: #1f2328; --muted: #57606a;
+        --tag-bg: #ddf4ff; --tag-text: #0969da; --green: #1a7f37;
+      }
+      a { color: var(--accent) !important; text-decoration: none !important; }
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 40px auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #0d2137 0%, #111827 60%, #0d1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 44px 48px 36px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 48px; right: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+      opacity: 0.4;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .name-block h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .name-block .title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 6px;
+      letter-spacing: 0.4px;
+    }
+
+    .name-block .tagline {
+      margin-top: 10px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      max-width: 380px;
+      line-height: 1.55;
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .contact-block a,
+    .contact-block span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .contact-block a:hover { color: var(--accent); }
+
+    .contact-block .icon {
+      width: 14px;
+      height: 14px;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    /* ── Body layout ── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 0;
+    }
+
+    .main-col {
+      padding: 36px 40px 40px 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .side-col {
+      padding: 36px 28px 40px;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 36px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Experience ── */
+    .exp-item { margin-bottom: 24px; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+
+    .exp-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .exp-period {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 9px;
+      font-weight: 500;
+    }
+
+    .exp-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .exp-desc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .exp-desc ul li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .exp-desc ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    /* ── Projects ── */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+    }
+
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-client {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Skills ── */
+    .skill-group { margin-bottom: 16px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid rgba(88,166,255,0.12);
+    }
+
+    /* ── Stats ── */
+    .stat-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 70px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* ── Brand list ── */
+    .brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 8px;
+    }
+
+    /* ── Side items ── */
+    .side-item {
+      margin-bottom: 7px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .side-item::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    /* ── Education ── */
+    .edu-item { margin-bottom: 14px; }
+    .edu-degree {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .edu-school {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 660px) {
+      .page { margin: 0; border-radius: 0; border-left: none; border-right: none; }
+      .header { padding: 28px 24px 24px; }
+      .header-inner { flex-direction: column; }
+      .contact-block { align-items: flex-start; }
+      .body { grid-template-columns: 1fr; }
+      .main-col { padding: 24px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .side-col { padding: 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="name-block">
+          <h1>Hanieh Robati</h1>
+          <div class="title">Front-End Developer</div>
+          <p class="tagline">
+            Specializing in high-performance interactive banners and rich web experiences.
+            88+ production campaigns for Iran's leading digital brands.
+          </p>
+        </div>
+        <div class="contact-block">
+          <span>
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            <a href="https://github.com/haniehrbt" target="_blank">github.com/haniehrbt</a>
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H5.5L2 16v-3H2a2 2 0 01-2-2V2zm2-1a1 1 0 00-1 1v9a1 1 0 001 1h1v2l2.5-2H14a1 1 0 001-1V2a1 1 0 00-1-1H2z"/><path d="M0 2a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H5.5L2 16v-3H2a2 2 0 01-2-2V2z" opacity="0"/></svg>
+            <a href="https://haniehrbt.github.io/portfolio" target="_blank">haniehrbt.github.io/portfolio</a>
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M.05 3.555A2 2 0 012 2h12a2 2 0 011.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 002 14h12a2 2 0 001.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg>
+            <a href="mailto:hnieh.rbt@gmail.com">hnieh.rbt@gmail.com</a>
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zm.5 4.75a.75.75 0 00-1.5 0v3.5l-1.5 1.5a.75.75 0 001.06 1.06l1.72-1.72V4.75z" clip-rule="evenodd"/><path d="M8 4a.905.905 0 00-.9.995l.35 3.507a.552.552 0 001.1 0l.35-3.507A.905.905 0 008 4zm.002 6a1 1 0 100 2 1 1 0 000-2z" opacity="0"/></svg>
+            <span>Tehran, Iran</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── BODY ── -->
+    <div class="body">
+
+      <!-- ── MAIN COLUMN ── -->
+      <main class="main-col">
+
+        <!-- Experience -->
+        <section class="section">
+          <div class="section-title">Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-role">Front-End Developer</span>
+              <span class="exp-period">2023 — Present</span>
+            </div>
+            <div class="exp-company">Uranus Billboard Agency · Tehran</div>
+            <div class="exp-desc">
+              <ul>
+                <li>Deliver 88+ interactive HTML5/CSS3/JS banner campaigns for Iran's top brands across fintech, e-commerce, telecom, and retail.</li>
+                <li>Build complex GSAP 3 animation systems: multi-step timelines, scroll-driven transitions, stagger sequences, and physics-based easing.</li>
+                <li>Integrate live data APIs (gold price, silver price, crypto charts) into banner creatives with real-time DOM rendering and fallback strategies.</li>
+                <li>Implement custom interactive features: countdown timers, wheel-spin mechanics, live price tickers, and multi-slide carousels.</li>
+                <li>Optimize asset pipelines and script bundles for sub-1s first-contentful-paint in constrained iframe environments (Yektanet ad network).</li>
+                <li>Coordinate with design, copy, and media teams to translate brand briefs into polished production assets on tight deadlines.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notable Projects -->
+        <section class="section">
+          <div class="section-title">Notable Projects</div>
+          <div class="project-grid">
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Black Friday Interactive Banner</span>
+                <span class="project-client">Snapp Pay</span>
+              </div>
+              <p class="project-desc">Full-screen animated banner with a live countdown timer, audio playback on user interaction, and GSAP-driven scene transitions synced to the countdown state.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Black Friday Wheel Campaign</span>
+                <span class="project-client">Digikala</span>
+              </div>
+              <p class="project-desc">Prize-wheel animation built with canvas and GSAP, with deceleration physics, audio feedback, and a responsive prize-reveal sequence.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Bitcoin LiveAds Chart</span>
+                <span class="project-client">Tabdeal</span>
+              </div>
+              <p class="project-desc">Live-data banner pulling real-time BTC price from REST API and rendering an animated SVG sparkline chart. Includes price-change indicators and auto-refresh every 60 seconds.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Silver Live Price Banner</span>
+                <span class="project-client">Wallex</span>
+              </div>
+              <p class="project-desc">Real-time silver price ticker with Persian numeral formatting, a weight-multiplier calculator, and 30-day growth trend indicator — all within a 300×600 banner.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Live Gold Price + Coupon</span>
+                <span class="project-client">Melli Gold</span>
+              </div>
+              <p class="project-desc">Dynamic banner displaying live gold prices fetched from a private API, combined with an animated coupon-reveal mechanic and timed CTA sequences.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card-header">
+                <span class="project-name">Multi-Slide Product Banner</span>
+                <span class="project-client">Palaz</span>
+              </div>
+              <p class="project-desc">Scroll-driven multi-product carousel banner integrating with the Yektanet <code style="font-size:0.72rem;background:var(--bg);padding:1px 4px;border-radius:3px;">yn-window-scroll</code> message protocol, with GSAP slide transitions and product highlight animations.</p>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ── SIDE COLUMN ── -->
+      <aside class="side-col">
+
+        <!-- Stats -->
+        <section class="section">
+          <div class="section-title">By the Numbers</div>
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-number">88+</div>
+              <div class="stat-label">Banner campaigns</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2+</div>
+              <div class="stat-label">Years in production</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+          <div class="section-title">Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Animation</div>
+            <div class="tag-list">
+              <span class="tag">GSAP 3</span>
+              <span class="tag">CSS Animations</span>
+              <span class="tag">Canvas</span>
+              <span class="tag">SVG</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Core</div>
+            <div class="tag-list">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript ES6+</span>
+              <span class="tag">Fetch API</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Frameworks</div>
+            <div class="tag-list">
+              <span class="tag">React 18</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Tooling</div>
+            <div class="tag-list">
+              <span class="tag">Git</span>
+              <span class="tag">Webpack</span>
+              <span class="tag">npm</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Brands -->
+        <section class="section">
+          <div class="section-title">Client Brands</div>
+          <div class="brand-list">
+            <span class="brand-tag">Digikala</span>
+            <span class="brand-tag">Irancell</span>
+            <span class="brand-tag">Snapp Pay</span>
+            <span class="brand-tag">Tapsi</span>
+            <span class="brand-tag">Snapp Shop</span>
+            <span class="brand-tag">Mofid Securities</span>
+            <span class="brand-tag">Bluebank</span>
+            <span class="brand-tag">Tabdeal</span>
+            <span class="brand-tag">Wallex</span>
+            <span class="brand-tag">Bitpin</span>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="section">
+          <div class="section-title">Languages</div>
+          <div class="side-item">Persian — Native</div>
+          <div class="side-item">English — Professional</div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+          <div class="section-title">Education</div>
+          <div class="edu-item">
+            <div class="edu-degree">B.Sc. Computer Engineering</div>
+            <div class="edu-school">Graduated · Iran</div>
+          </div>
+        </section>
+
+      </aside>
+    </div><!-- /.body -->
+  </div><!-- /.page -->
+</body>
+</html>
