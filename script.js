@@ -10,34 +10,9 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('done');
     revealHero();
-  }, 1300);
+  }, 400);
 });
 
-/* ─────────────────────────────────────────
-   CUSTOM CURSOR
-───────────────────────────────────────── */
-const cursor  = document.getElementById('cursor');
-const trail   = document.getElementById('cursor-trail');
-let mx = 0, my = 0, tx = 0, ty = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top  = my + 'px';
-});
-
-(function animTrail() {
-  tx += (mx - tx) * 0.12;
-  ty += (my - ty) * 0.12;
-  trail.style.left = tx + 'px';
-  trail.style.top  = ty + 'px';
-  requestAnimationFrame(animTrail);
-})();
-
-document.querySelectorAll('a, button, .wcard, .f-btn').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%,-50%) scale(2.5)');
-  el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%,-50%) scale(1)');
-});
 
 /* ─────────────────────────────────────────
    CANVAS PARTICLES
@@ -284,11 +259,24 @@ document.querySelectorAll('.f-btn').forEach(btn => {
 });
 
 /* ─────────────────────────────────────────
-   WCARD: inject live banner iframes
+   WCARD: inject live banner iframes in iPhone mockup
 ───────────────────────────────────────── */
 document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   const p = new URLSearchParams(thumb.getAttribute('data-preview')).get('p');
   if (!p) return;
+
+  const phone = document.createElement('div');
+  phone.className = 'iphone-bottom';
+
+  const notch = document.createElement('div');
+  notch.className = 'iphone-notch';
+
+  const appContent = document.createElement('div');
+  appContent.className = 'app-content';
+
+  const bannerSlot = document.createElement('div');
+  bannerSlot.className = 'banner-slot';
+
   const iframe = document.createElement('iframe');
   iframe.src = p + '/index.html';
   iframe.className = 'thumb-iframe';
@@ -296,7 +284,12 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   iframe.scrolling = 'no';
   iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
   iframe.tabIndex = -1;
-  thumb.insertBefore(iframe, thumb.querySelector('.wcard-hover-overlay'));
+
+  bannerSlot.appendChild(iframe);
+  phone.appendChild(notch);
+  phone.appendChild(appContent);
+  phone.appendChild(bannerSlot);
+  thumb.insertBefore(phone, thumb.querySelector('.wcard-hover-overlay'));
 });
 
 /* ─────────────────────────────────────────
