@@ -260,7 +260,10 @@ document.querySelectorAll('.f-btn').forEach(btn => {
 
 /* ─────────────────────────────────────────
    WCARD: inject live banner iframes
+   Banners are designed for 375px viewport — scale to fit each card.
 ───────────────────────────────────────── */
+const BANNER_DESIGN_W = 375;
+
 document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   const p = new URLSearchParams(thumb.getAttribute('data-preview')).get('p');
   if (!p) return;
@@ -274,6 +277,13 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   iframe.tabIndex = -1;
 
   thumb.insertBefore(iframe, thumb.querySelector('.wcard-hover-overlay'));
+
+  function scaleIframe() {
+    const s = thumb.clientWidth / BANNER_DESIGN_W;
+    iframe.style.transform = `scale(${s})`;
+  }
+  scaleIframe();
+  new ResizeObserver(scaleIframe).observe(thumb);
 });
 
 /* ─────────────────────────────────────────

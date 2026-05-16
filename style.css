@@ -561,16 +561,20 @@ svg defs { position: absolute; }
   display: none;
 }
 
-/* Thumbnail — full-width banner at actual 150px */
+/* Thumbnail — banner scaled to card width from 375px design viewport */
 .wcard-thumb {
   height: 150px; position: relative; overflow: hidden;
   background: var(--ink);
+  contain: paint;
 }
 .thumb-iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 150px;
+  position: absolute;
+  top: 0; left: 0;
+  width: 375px; height: 150px;
   border: none; display: block;
   pointer-events: none;
+  transform-origin: top left;
+  /* scale set by JS: card.width / 375 */
 }
 .wcard-noise { display: none; }
 .wcard-demo  { display: none; }
