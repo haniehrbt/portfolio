@@ -409,7 +409,7 @@
       </div>
     </div>
 
-    <p class="hint">
+    <p class="hint" id="hint-text">
       Sticky banner · <b>full width × 150px</b> · exactly as users see it on ad networks<br>
       Animated with <b>GSAP</b> · Production-ready HTML5
     </p>
@@ -425,16 +425,46 @@
     const name   = params.get('name')   || 'Banner Preview';
     const client = params.get('client') || '';
 
+    const frame = document.getElementById('banner-frame');
+
     if (proj) {
       document.getElementById('banner-name').textContent   = name;
       document.getElementById('banner-client').textContent = client || 'Hanieh Robati — Front-End Developer';
       document.title = name + ' — Banner Preview';
 
-      const frame = document.getElementById('banner-frame');
-      frame.src   = proj + '/index.html';
+      frame.src = proj + '/index.html';
       frame.addEventListener('load', () => {
         document.getElementById('loading').classList.add('hidden');
       });
+    }
+
+    /* ── Scroll-driven banner support (yn-window-scroll protocol) ──
+       Accumulate wheel delta and forward as postMessage to the iframe.
+       handleScroll in the banner uses heightOfPage > 3500 branch:
+       newSlide = Math.trunc(scrolledInPx / 200)  →  one slide per 200px
+    */
+    const SCROLL_PAGE_H = 4000;
+    let fakeScrollPx = 0;
+    const iphone = document.querySelector('.iphone');
+
+    iphone.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      fakeScrollPx = Math.max(0, fakeScrollPx + e.deltaY * 0.9);
+      if (!frame.contentWindow) return;
+      frame.contentWindow.postMessage({
+        type: 'yn-window-scroll',
+        scrolled: (fakeScrollPx / SCROLL_PAGE_H) * 100,
+        scrolledInPx: fakeScrollPx,
+        heightOfPage: SCROLL_PAGE_H,
+      }, '*');
+    }, { passive: false });
+
+    // Show scroll hint only for scroll-driven banners (okala-kharid)
+    if (proj.includes('okala')) {
+      document.getElementById('hint-text').innerHTML =
+        'Sticky banner · <b>full width × 150px</b> · scroll over the phone to browse products<br>' +
+        'Animated with <b>GSAP</b> · Scroll-driven · Production-ready HTML5';
+      iphone.style.cursor = 'ns-resize';
     }
   </script>
 </body>
