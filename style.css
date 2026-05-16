@@ -400,9 +400,11 @@ section { padding: 110px 0; position: relative; }
   box-shadow: 0 0 60px rgba(37,99,235,.25), inset 0 0 40px rgba(37,99,235,.1);
 }
 .avatar-photo {
+  display: block;
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border-radius: 50%;
 }
 .avatar-fallback { pointer-events: none; }
 .float-chip {
