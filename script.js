@@ -259,14 +259,11 @@ document.querySelectorAll('.f-btn').forEach(btn => {
 });
 
 /* ─────────────────────────────────────────
-   WCARD: inject live banner iframes (full-width, scaled to card height)
+   WCARD: inject live banner iframes
 ───────────────────────────────────────── */
 document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   const p = new URLSearchParams(thumb.getAttribute('data-preview')).get('p');
   if (!p) return;
-
-  const wrap = document.createElement('div');
-  wrap.className = 'thumb-scale-wrap';
 
   const iframe = document.createElement('iframe');
   iframe.src = p + '/index.html';
@@ -276,13 +273,7 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
   iframe.tabIndex = -1;
 
-  // Scale 150px banner to fill the 200px card thumb height
-  const scale = 200 / 150;
-  iframe.style.transform = `scale(${scale})`;
-  iframe.style.width = (100 / scale) + '%';
-
-  wrap.appendChild(iframe);
-  thumb.insertBefore(wrap, thumb.querySelector('.wcard-hover-overlay'));
+  thumb.insertBefore(iframe, thumb.querySelector('.wcard-hover-overlay'));
 });
 
 /* ─────────────────────────────────────────

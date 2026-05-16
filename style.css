@@ -561,36 +561,15 @@ svg defs { position: absolute; }
   display: none;
 }
 
-/* Thumbnail — full-width banner preview */
+/* Thumbnail — full-width banner at actual 150px */
 .wcard-thumb {
-  height: 200px; position: relative; overflow: hidden;
+  height: 150px; position: relative; overflow: hidden;
   background: var(--ink);
 }
-/* scale the 150px banner to fill the 200px thumb height */
-.thumb-scale-wrap {
-  position: absolute; inset: 0;
-  overflow: hidden;
-}
 .thumb-iframe {
-  position: absolute;
-  top: 0; left: 0;
+  position: absolute; inset: 0;
   width: 100%; height: 150px;
   border: none; display: block;
-  pointer-events: none;
-  transform-origin: top left;
-  /* scale set by JS to fill card height */
-}
-/* fade top edge into card bg for a polished cutoff */
-.wcard-thumb::after {
-  content: '';
-  position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    var(--ink) 0%,
-    transparent 28%,
-    transparent 72%,
-    var(--ink) 100%
-  );
   pointer-events: none;
 }
 .wcard-noise { display: none; }
