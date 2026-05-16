@@ -259,26 +259,14 @@ document.querySelectorAll('.f-btn').forEach(btn => {
 });
 
 /* ─────────────────────────────────────────
-   WCARD: inject live banner iframes in iPhone mockup
+   WCARD: inject live banner iframes (full-width, scaled to card height)
 ───────────────────────────────────────── */
 document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   const p = new URLSearchParams(thumb.getAttribute('data-preview')).get('p');
   if (!p) return;
 
-  const phone = document.createElement('div');
-  phone.className = 'iphone-frame';
-
-  const island = document.createElement('div');
-  island.className = 'iphone-island';
-
-  const appContent = document.createElement('div');
-  appContent.className = 'app-content';
-
-  const bannerSlot = document.createElement('div');
-  bannerSlot.className = 'banner-slot';
-
-  const homeBar = document.createElement('div');
-  homeBar.className = 'iphone-home-bar';
+  const wrap = document.createElement('div');
+  wrap.className = 'thumb-scale-wrap';
 
   const iframe = document.createElement('iframe');
   iframe.src = p + '/index.html';
@@ -288,12 +276,13 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
   iframe.tabIndex = -1;
 
-  bannerSlot.appendChild(iframe);
-  phone.appendChild(island);
-  phone.appendChild(appContent);
-  phone.appendChild(bannerSlot);
-  phone.appendChild(homeBar);
-  thumb.insertBefore(phone, thumb.querySelector('.wcard-hover-overlay'));
+  // Scale 150px banner to fill the 200px card thumb height
+  const scale = 200 / 150;
+  iframe.style.transform = `scale(${scale})`;
+  iframe.style.width = (100 / scale) + '%';
+
+  wrap.appendChild(iframe);
+  thumb.insertBefore(wrap, thumb.querySelector('.wcard-hover-overlay'));
 });
 
 /* ─────────────────────────────────────────
