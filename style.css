@@ -561,47 +561,40 @@ svg defs { position: absolute; }
   display: none;
 }
 
-/* Thumbnail — iPhone mockup */
+/* Thumbnail — full iPhone mockup */
 .wcard-thumb {
-  height: 240px; position: relative; overflow: hidden;
+  height: 310px; position: relative; overflow: hidden;
   background: var(--ink);
-  display: flex; align-items: flex-end; justify-content: center;
-  padding-bottom: 0;
+  display: flex; align-items: center; justify-content: center;
 }
-.iphone-bottom {
-  width: 78%; max-width: 260px;
-  height: 220px;
+.iphone-frame {
+  width: 156px;
+  height: 288px;
+  flex-shrink: 0;
   background: var(--ink2);
   border: 1.5px solid rgba(255,255,255,.13);
-  border-bottom: none;
-  border-radius: 28px 28px 0 0;
+  border-radius: 38px;
   overflow: hidden;
   display: flex; flex-direction: column;
-  box-shadow: 0 -12px 48px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.04);
-  flex-shrink: 0;
+  box-shadow:
+    0 0 0 5px var(--ink3),
+    0 0 0 6.5px rgba(255,255,255,.07),
+    0 24px 56px rgba(0,0,0,.7);
 }
-.iphone-notch {
-  width: 72px; height: 22px;
-  background: var(--ink);
+.iphone-island {
+  width: 60px; height: 20px;
+  background: #000;
   border-radius: 0 0 14px 14px;
   margin: 0 auto;
   flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-}
-.iphone-notch::after {
-  content: '';
-  position: absolute;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,.08);
-  top: 50%; right: 14px; transform: translateY(-50%);
+  position: relative; z-index: 2;
 }
 .app-content {
   flex: 1;
   background: linear-gradient(180deg, var(--ink) 0%, var(--ink2) 100%);
   display: flex; flex-direction: column;
-  justify-content: flex-end; padding: 10px 12px;
-  gap: 6px;
+  padding: 10px 12px 6px; gap: 6px;
+  overflow: hidden;
 }
 .app-content::before,
 .app-content::after {
@@ -614,6 +607,17 @@ svg defs { position: absolute; }
 .banner-slot {
   height: 150px; flex-shrink: 0;
   position: relative; overflow: hidden;
+}
+.iphone-home-bar {
+  height: 22px; flex-shrink: 0;
+  background: var(--ink2);
+  display: flex; align-items: center; justify-content: center;
+}
+.iphone-home-bar::after {
+  content: '';
+  width: 44px; height: 4px;
+  background: rgba(255,255,255,.2);
+  border-radius: 4px;
 }
 .thumb-iframe {
   position: absolute; inset: 0;

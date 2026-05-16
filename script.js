@@ -266,16 +266,19 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   if (!p) return;
 
   const phone = document.createElement('div');
-  phone.className = 'iphone-bottom';
+  phone.className = 'iphone-frame';
 
-  const notch = document.createElement('div');
-  notch.className = 'iphone-notch';
+  const island = document.createElement('div');
+  island.className = 'iphone-island';
 
   const appContent = document.createElement('div');
   appContent.className = 'app-content';
 
   const bannerSlot = document.createElement('div');
   bannerSlot.className = 'banner-slot';
+
+  const homeBar = document.createElement('div');
+  homeBar.className = 'iphone-home-bar';
 
   const iframe = document.createElement('iframe');
   iframe.src = p + '/index.html';
@@ -286,9 +289,10 @@ document.querySelectorAll('.wcard-thumb[data-preview]').forEach(thumb => {
   iframe.tabIndex = -1;
 
   bannerSlot.appendChild(iframe);
-  phone.appendChild(notch);
+  phone.appendChild(island);
   phone.appendChild(appContent);
   phone.appendChild(bannerSlot);
+  phone.appendChild(homeBar);
   thumb.insertBefore(phone, thumb.querySelector('.wcard-hover-overlay'));
 });
 
