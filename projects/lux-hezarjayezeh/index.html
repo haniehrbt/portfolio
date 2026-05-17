@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="tags2.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>Document</title>
+    <link href="style2.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="bgContainer">
+      <img src="./bg.png" class="bg" />
+    </div>
+    <img src="./flower.svg" class="flower" />
+    <img src="./logo.svg" class="logo" />
+    <div class="slide1">
+      <div class="numbers">
+        <img src="./1.png" class="one" />
+        <img src="./0.png" class="zero" />
+      </div>
+      <div class="gifts">
+        <div class="car1Container">
+          <img src="./car1.png" class="cra1" />
+          <div class="wheelWrap">
+            <img src="./carWeel1.png" class="weelCar1front" />
+          </div>
+          <div class="wheelWrap">
+            <img src="./carWeel1.png" class="weelCar1back" />
+          </div>
+        </div>
+        <div class="car2Container">
+          <img src="./car2.png" class="cra2" />
+          <div class="wheelWrap">
+            <img src="./carWeel2.png" class="weelCar2front" />
+          </div>
+          <div class="wheelWrap">
+            <img src="./carWeel2.png" class="weelCar2fback" />
+          </div>
+        </div>
+        <div class="motorContainer">
+          <img src="./motor.png" class="motor" />
+          <div class="wheelWrap">
+            <img src="./weelMotor.png" class="weelMotorfront" />
+          </div>
+          <div class="wheelWrap">
+            <img src="./weelMotor.png" class="weelMotorback" />
+          </div>
+        </div>
+      </div>
+      <div class="slide2">
+        <img src="./overline.png" class="overline" />
+        <img src="cta1.svg" class="cta" />
+      </div>
+      <div class="stageContainer">
+        <img src="./stage.png" class="stage" />
+      </div>
+    </div>
+    <script src="script2.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>
