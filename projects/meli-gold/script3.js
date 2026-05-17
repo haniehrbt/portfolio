@@ -300,8 +300,10 @@ const leftBtn = document.querySelector(".leftBtn");
 
 rightBtn.addEventListener("click", () => {
   fire_tag(ACTIONS.CLICK_RIGHTBTN);
+  window.open('https://meligold.ir', '_blank');
 });
 
 leftBtn.addEventListener("click", () => {
   fire_tag(ACTIONS.CLICK_LEFTBTN);
+  window.open('https://meligold.ir', '_blank');
 });
