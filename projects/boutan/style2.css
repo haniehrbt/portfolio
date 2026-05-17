@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.bg {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 61%);
+  width: 0;
+  height: 100px;
+  z-index: -100;
+  border-radius: 8px;
+  background: #ff6363;
+  background: radial-gradient(
+    circle,
+    rgba(255, 99, 99, 1) 0%,
+    rgba(255, 16, 16, 1) 100%
+  );
+  opacity: 0;
+}
+
+.product {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  width: 210px;
+  opacity: 0;
+  transform: translateY(-200px);
+}
+.badge {
+  position: fixed;
+  width: 80px;
+  bottom: 40px;
+  left: 0;
+  opacity: 0;
+  transform: scale(0);
+}
+.overline {
+  position: fixed;
+  width: 140px;
+  bottom: 70px;
+  right: 17px;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.logo {
+  position: fixed;
+  bottom: 64px;
+  height: 60px;
+  right: 40px;
+  opacity: 0;
+  transform: translateY(-30px) scale(0.8);
+}
+.cta {
+  position: fixed;
+  bottom: 28px;
+  right: 43px;
+  width: 83px;
+  opacity: 0;
+  transform: scale(0);
+  animation: tapesh 1.1s infinite;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="tags1.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+    <div class="slide1">
+      <div class="leftFirst">
+        <img src="./leftBanner.png" class="leftBanner" />
+        <img src="./cta.svg" class="cta" />
+      </div>
+      <div class="main">
+        <img src="./tower.gif" class="tower" />
+        <div class="productContainer">
+          <div class="leftSide">
+            <img src="./product1.png" class="productimg" />
+            <img src="./product4.png" class="productimg" />
+          </div>
+          <div class="rightSide">
+            <img src="./product3.png" class="productimg productimg3" />
+            <img src="./product2.png" class="productimg" />
+          </div>
+        </div>
+      </div>
+      <div class="rightFirst">
+        <img src="./rightBanner.png" class="rightBanner" />
+      </div>
+    </div>
+    <div class="bgContainer" style="display: none">
+      <div class="logoWrapper">
+        <video class="bg-video" autoplay muted loop playsinline>
+          <source src="./bgVideo.mp4" type="video/mp4" />
+        </video>
+        <img src="./bg.png" class="bg" />
+        <img src="./logo.png" class="logo-image" />
+        <div class="bottomVideo">
+          <img src="./overline.svg" class="overline" />
+          <img src="./tower.png" class="towerimg" />
+          <img src="./cta.svg" class="cta-logo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="leftContainer" style="display: none">
+      <div class="gifContainer">
+        <img src="product1.gif" class="product" />
+        <div class="badgeCircle">
+          <img src="./bageslide2.png" class="bageslide2" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script4.js"></script>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>

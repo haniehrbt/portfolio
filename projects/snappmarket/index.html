@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style11.css" rel="stylesheet" />
+    <script src="./tags.js"></script>
+  </head>
+  <body>
+    <!--<img src="./product1-3.png" class="product"/>-->
+    <!--<img src="./product2-4.png" class="product"/>-->
+    <!--<img src="./product3-3.png" class="product"/>-->
+    <!--<img src="./product4-4.png" class="product"/>-->
+
+    <div class="videoContainer">
+      <video
+        class="video1"
+        muted
+        playsinline
+        webkit-playsinline
+        disablepictureinpicture
+        x-webkit-airplay="deny"
+      >
+        <source src="1-4.mp4" type="video/mp4" />
+      </video>
+      <video
+        class="video2"
+        muted
+        playsinline
+        webkit-playsinline
+        disablepictureinpicture
+        x-webkit-airplay="deny"
+      >
+        <source src="2-4.mp4" type="video/mp4" />
+      </video>
+      <video
+        class="video4"
+        muted
+        playsinline
+        webkit-playsinline
+        disablepictureinpicture
+        x-webkit-airplay="deny"
+      >
+        <source src="./4-2.mp4" type="video/mp4" />
+      </video>
+
+      <div class="bgContainer">
+        <div class="layerBg"></div>
+        <img src="./overline0.svg" class="overline0" />
+      </div>
+    </div>
+    <div class="cloudContainer">
+      <img src="./cloud.png" class="cloud1" />
+      <img src="./circle.png" class="circle1" />
+      <img src="./circle.png" class="circle2" />
+      <img src="./overline1.svg" class="video1-overlay video1-overlay1" />
+      <img src="overline2-2.svg" class="video1-overlay video1-overlay2" />
+    </div>
+    <button class="custom-button">خرید آنلاین از اسنپ مارکت</button>
+    <div class="productContainer">
+      <img src="./bgproduct.png" class="bgProduct" />
+      <img src="product1-3.png" class="product" />
+      <img src="product2-3.png" class="product product2" />
+      <img src="product3-3.png" class="product" />
+      <img src="product4-3.png" class="product" />
+    </div>
+    <script src="script9.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

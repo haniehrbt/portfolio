@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="tags2.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/ScrollToPlugin.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="right">
+        <div id="timerDisplay">
+          <span class="time"></span>
+          <span class="time"></span>
+          <span class="colon">:</span>
+          <span class="time"></span>
+          <span class="time"></span>
+          <span class="colon">:</span>
+          <span class="time"></span>
+          <span class="time"></span>
+        </div>
+        <img src="number.svg" class="number" />
+      </div>
+      <div class="left">
+        <img src="./logo.png" class="logo" />
+        <img src="./overline.svg" class="overline" />
+      </div>
+      <div class="video-background">
+        <video
+          src="./cut.mp4"
+          muted
+          autoplay
+          loop
+          playsinline
+          class="video"
+        ></video>
+        <div class="overlay"></div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
