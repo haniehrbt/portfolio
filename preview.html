@@ -519,9 +519,8 @@
     let fakeScrollPx = 0;
     const iphone = document.querySelector('.iphone');
 
-    iphone.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      fakeScrollPx = Math.max(0, fakeScrollPx + e.deltaY * 0.9);
+    function sendScroll(deltaY) {
+      fakeScrollPx = Math.max(0, fakeScrollPx + deltaY);
       if (!frame.contentWindow) return;
       frame.contentWindow.postMessage({
         type: 'yn-window-scroll',
@@ -529,6 +528,24 @@
         scrolledInPx: fakeScrollPx,
         heightOfPage: SCROLL_PAGE_H,
       }, '*');
+    }
+
+    // Desktop: wheel
+    iphone.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      sendScroll(e.deltaY * 0.9);
+    }, { passive: false });
+
+    // Mobile: touch
+    let touchStartY = 0;
+    iphone.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    iphone.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const delta = (touchStartY - e.touches[0].clientY) * 2.5;
+      touchStartY = e.touches[0].clientY;
+      sendScroll(delta);
     }, { passive: false });
 
     // Show scroll hint only for scroll-driven banners (okala-kharid)
