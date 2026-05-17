@@ -700,13 +700,17 @@ svg defs { position: absolute; }
 }
 .more-clients p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
 .client-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.client-tags span {
+.client-tags span,
+.client-tags a {
   padding: 6px 16px; border-radius: 100px;
   background: var(--ink); border: 1px solid var(--border);
   font-size: 13px; color: var(--dim);
   transition: color .2s, border-color .2s;
+  text-decoration: none;
 }
-.client-tags span:hover { color: var(--p2); border-color: rgba(37,99,235,.3); }
+.client-tags a { cursor: pointer; }
+.client-tags span:hover,
+.client-tags a:hover { color: var(--p2); border-color: rgba(37,99,235,.3); }
 
 /* ─────────────────────────────────────────
    CONTACT

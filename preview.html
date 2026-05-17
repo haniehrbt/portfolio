@@ -548,8 +548,8 @@
       sendScroll(delta);
     }, { passive: false });
 
-    // Show scroll hint only for scroll-driven banners (okala-kharid)
-    if (proj.includes('okala')) {
+    // Show scroll hint for scroll-driven banners
+    if (proj.includes('okala') || proj.includes('tapsigarage')) {
       document.getElementById('hint-text').innerHTML =
         'Sticky banner · <b>full width × 150px</b> · scroll over the phone to browse products<br>' +
         'Animated with <b>GSAP</b> · Scroll-driven · Production-ready HTML5';

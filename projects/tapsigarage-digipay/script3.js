@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         transform: 'translate(0,-50%)',
         onComplete: () => {
           handleInterval();
-          setInterval(handleInterval, 4000);
+          cycleInterval = setInterval(handleInterval, 4000);
         },
       });
 
@@ -88,4 +88,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   setTimeout(startKerkere, 4000);
+
+  let cycleInterval = null;
+  let scrollStarted = false;
+
+  window.addEventListener('message', (e) => {
+    if (e.data.type !== 'yn-window-scroll') return;
+    if (!scrollStarted) {
+      scrollStarted = true;
+      clearInterval(cycleInterval);
+    }
+    const scrollPx = e.data.scrolledInPx;
+    const newSlide = Math.trunc(scrollPx / 200) % products.length;
+    if (newSlide === currentSlideNumber) return;
+    handleProduct(currentSlideNumber, newSlide);
+    currentSlideNumber = newSlide;
+  });
 });
