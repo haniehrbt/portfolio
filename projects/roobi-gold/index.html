@@ -1,74 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
-    <script src="tags.js"></script>
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
-    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/ScrollToPlugin.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <script src="./tags.js"></script>
+    <title>Document</title>
+    <link href="style5.css" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="./bg.png" class="bg" />
 
-<div class="wall glow-box"></div>
-
-<div class="centerContainer centerFlex">
-    <img class="product" src="product1.png">
-    <img class="product" src="product2.png">
-    <img class="product" src="product3.png">
-    <img class="product" src="product4.png">
-    <img class="product" src="product5.png">
-    <img class="product" src="product6.png">
-</div>
-
-<div class="leftContainer Container">
-    <img class="lamp" src="lamp.svg">
-</div>
-<div class="leftContainer Container centerFlex">
-    <img class="logo" src="logo.svg">
-</div>
-
-<div class="rightContainer Container">
-    <img class="lamp" src="lamp.svg">
-</div>
-<div class="rightContainer Container overlineConntainer centerFlex">
-    <img class="overline" src="overline1.svg">
-</div>
-
-<div class="bg">
-    <img class="pattern" src="pattern.png">
-</div>
-<img class="float swing floatLeft" src="floatLeft.png">
-
-
-<img class="float floatRight" src="floatRight.png">
-<img class="terme" src="terme.png">
-<img class="snow" src="snow.gif">
-
-<!--Products Part-->
-<section class="content">
-    <div class="item">
+    <div class="right">
+      <img src="notif1.svg" class="notif" />
+      <img src="./bag.png" class="bag" />
     </div>
-    <div class="item">
+    <div class="left">
+      <div class="leftContainer">
+        <div class="bgBox">
+          <img src="./bgProductRight.png" class="bgProductLeft" />
+          <img src="./shadow.svg" class="shadow" />
+          <img src="./product2.png" class="product2 product" />
+        </div>
+        <div class="bgBox">
+          <img src="./bgProductRight.png" class="bgProductLeft" />
+          <img src="./shadow.svg" class="shadow" />
+          <img src="./product4.png" class="product4 product" />
+        </div>
+      </div>
+      <div class="rightContainer">
+        <div class="bgBox">
+          <img src="./bgProductLeft.png" class="bgProductRight" />
+          <img src="./shadow.svg" class="shadow" />
+          <img src="./product1.png" class="product1 product" />
+        </div>
+        <div class="bgBox">
+          <img src="./bgProductLeft.png" class="bgProductRight" />
+          <img src="./shadow.svg" class="shadow" />
+          <img src="./product3.png" class="product3 product" />
+        </div>
+      </div>
     </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
-</section>
 
-<img
-        src="https://cdn.yektanet.com/assets/images/yektanet-logo.webp"
-        alt="yn-ad"
-        title="یکتانت"
-        width="14px"
-        height="14px"
-        class="yektanet_logo"/>
-</body>
-<script src="script11.js"></script>
+    <div class="slide2">
+      <img src="./bg2.svg" class="bg2" />
+      <img src="./console.png" class="console" />
+      <img src="./product1.png" class="product1-2" />
+      <img src="./product4.png" class="product4-2" />
+      <img src="product5.png" class="product5-2" />
+      <div class="rightSlide2">
+        <img src="./logo.svg" class="logo" />
+        <img src="overline1.svg" class="overline" />
+        <img src="./cta.svg" class="cta" />
+      </div>
+    </div>
+
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+    <script src="script5.js"></script>
+  </body>
 </html>
