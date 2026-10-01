@@ -1,0 +1,364 @@
+@font-face {
+  font-family: 'Peyda';
+  src: url('Peyda-Regular.woff') format('woff');
+}
+
+* { padding: 0; margin: 0; box-sizing: border-box; font-family: 'Peyda', sans-serif; }
+
+body { background: transparent; width: 100%; height: 100%; overflow: hidden; }
+
+/* ── BACKGROUND LAYERS ── */
+.bg {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98vw; height: 120px;
+  z-index: 1;
+}
+
+.bg-glow {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98vw; height: 120px;
+  border-radius: 14px;
+  z-index: 2; pointer-events: none; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 16% 75%, rgba(0,120,95,0.58) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 28%, rgba(185,130,0,0.42) 0%, transparent 48%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,85,55,0.32) 0%, transparent 42%);
+  opacity: 0; /* GSAP controls fade-in and breathing */
+}
+
+/* gold impact burst — fires when coin lands */
+.light-burst {
+  position: fixed;
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  left: 43px; top: 64px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,235,80,0.95) 0%, rgba(255,200,40,0.5) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 15; opacity: 0;
+}
+
+/* luxury gold sweep across full frame */
+.shimmer-sweep {
+  position: fixed; top: 0; left: -70%; width: 45%; height: 100%; z-index: 4;
+  background: linear-gradient(to right,
+    transparent 0%, rgba(255,235,120,0.04) 35%,
+    rgba(255,248,180,0.13) 50%, rgba(255,235,120,0.04) 65%, transparent 100%);
+  transform: skewX(-13deg);
+  animation: globalSweep 7.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── LEFT ZONE ── */
+.left {
+  position: fixed; left: 10px; bottom: 5px;
+  width: 42%; height: 120px;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 0 0 8px 0;
+  gap: 22px;
+  direction: ltr;   /* fixes RTL so flex-start = physical left */
+  z-index: 10;
+}
+
+.logo { height: 21px; }
+
+.coin-group {
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* ── COIN ── */
+.coin-float-wrap {
+  position: relative; flex-shrink: 0;
+  width: 66px; height: 66px;
+}
+
+/* dual orbit halos */
+.ring {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+.ring-outer {
+  inset: -11px;
+  border: 1.5px dashed rgba(255,215,0,0.36);
+  animation: ringRotate 10s linear infinite;
+}
+.ring-mid {
+  inset: -5px;
+  border: 1px solid rgba(255,215,0,0.18);
+  animation: ringRotate 6s linear infinite reverse;
+}
+
+.gold-coin {
+  width: 66px; height: 66px; border-radius: 50%;
+  background:
+    radial-gradient(circle at 33% 27%, #fffff5 0%, #ffe97a 14%, #ffd200 30%, #c58c08 58%, #7a5200 82%, #3a2500 100%);
+  box-shadow:
+    0 0 0 2.5px #c89000,
+    0 0 0 5px   rgba(180,128,0,0.28),
+    0 0 0 9px   rgba(255,195,0,0.09),
+    0 0 22px    rgba(255,195,0,0.9),
+    0 0 48px    rgba(255,162,0,0.48),
+    0 0 80px    rgba(255,140,0,0.2),
+    inset 0 2px 6px rgba(255,255,200,0.65),
+    inset 0 -2px 5px rgba(70,35,0,0.4);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0; position: relative; overflow: hidden;
+  animation: coinPulse 2.6s ease-in-out infinite;
+}
+
+/* coin sweep shine */
+.gold-coin::before {
+  content: '';
+  position: absolute; top: -20%; left: -55%;
+  width: 32%; height: 140%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.68) 50%, transparent);
+  transform: skewX(-16deg);
+  animation: coinSweep 3s ease-in-out infinite;
+  z-index: 1;
+}
+/* inner engraved ring */
+.gold-coin::after {
+  content: '';
+  position: absolute; inset: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,245,155,0.4);
+  pointer-events: none;
+}
+
+.coin-crown {
+  font-size: 7px; color: rgba(50,25,0,0.65);
+  line-height: 1; margin-bottom: 1px;
+  position: relative; z-index: 2;
+}
+.coin-five {
+  font-size: 30px; font-weight: 900; color: #3a1f00;
+  line-height: 1; position: relative; z-index: 2;
+  text-shadow: 0 1px 2px rgba(255,248,160,0.85), 0 -1px 1px rgba(60,30,0,0.5);
+}
+.coin-sep {
+  width: 26px; height: 1px; margin: 2px 0;
+  background: linear-gradient(to right, transparent, rgba(50,25,0,0.45), transparent);
+  position: relative; z-index: 2;
+}
+.coin-soot {
+  font-size: 9px; font-weight: 800; color: rgba(50,25,0,0.7);
+  letter-spacing: 1.2px; line-height: 1;
+  position: relative; z-index: 2;
+}
+
+/* ── COIN TEXT (wipe-reveals) ── */
+.coin-text {
+  display: flex; flex-direction: column; gap: 4px;
+  direction: rtl;
+  clip-path: inset(0 100% 0 0); /* GSAP animates this to inset(0 0% 0 0) */
+}
+
+.text-gold {
+  font-size: 22px; font-weight: 900; line-height: 1;
+  background: linear-gradient(90deg,
+    #886000 0%, #ffd700 22%, #fff8a0 48%, #ffd700 74%, #886000 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; background-size: 220% 100%;
+  animation: goldShimmer 2.2s linear infinite;
+  white-space: nowrap;
+  z-index: 999;
+}
+.text-gift {
+  font-size: 9.5px; font-weight: 600;
+  color: rgba(255,255,255,0.68);
+  direction: rtl; white-space: nowrap;
+}
+
+/* ── RIGHT ZONE ── */
+.right {
+  position: fixed; right: 6px; bottom: 5px;
+  width: 54%; height: 128px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 7px; z-index: 10;
+  overflow: visible;
+}
+
+.bgPriceWrapper {
+  position: relative; display: flex;
+  justify-content: center; align-items: center;
+  width: 210px;
+  margin-top: -18px;   /* pops above the bg edge */
+  z-index: 20;
+}
+.bgPrice { width: 210px; display: block; }
+
+.live-price {
+  position: absolute; display: inline-flex;
+  align-items: center; justify-content: center;
+  padding: 20px 18px 0 10px; gap: 6px;
+  pointer-events: none; white-space: nowrap; direction: rtl;
+}
+.live-indicator-wrapper {
+  position: relative; display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 12px; height: 12px;
+}
+.live-indicator {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #ffd300;
+  animation: livePulse 0.5s ease-in-out infinite;
+}
+.live-indicator.is-offline { background: rgba(255,211,0,0.35); animation: none; }
+.live-value  { color: #ffe000; font-size: 20px; font-weight: 800; }
+.live-currency { color: #fff; font-size: 11px; font-weight: 600; }
+
+/* ── TICKET ── */
+.ticket-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.ticket-stamp-wrap {
+  position: relative; display: inline-flex;
+}
+
+/* expanding rings on stamp — animated by GSAP */
+.stamp-ring {
+  position: absolute; inset: 0;
+  border-radius: 8px;
+  border: 2px solid rgba(255,224,0,0.65);
+  pointer-events: none;
+  transform-origin: center center;
+  opacity: 0;
+}
+
+.ticket {
+  display: inline-flex; align-items: stretch;
+  border-radius: 8px; overflow: hidden;
+  border: 1.5px solid rgba(255,224,0,0.6);
+  animation: ticketGlow 2.5s ease-in-out infinite;
+  cursor: pointer; user-select: none;
+  transition: filter 0.15s ease;
+}
+.ticket:active { filter: brightness(1.25); }
+
+.ticket-label {
+  background: rgba(255,224,0,0.1);
+  padding: 6px 11px;
+  font-size: 9px; font-weight: 600;
+  color: rgba(255,255,255,0.72);
+  direction: rtl; white-space: nowrap;
+  display: flex; align-items: center;
+}
+.ticket-tear {
+  display: block; width: 7px; flex-shrink: 0;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0px, transparent 3px,
+    rgba(255,224,0,0.55) 3px, rgba(255,224,0,0.55) 5px);
+}
+.ticket-code {
+  background: rgba(0,14,7,0.7);
+  padding: 6px 11px;
+  font-size: 16px; font-weight: 900; color: #ffe000;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  letter-spacing: 2.5px;
+  text-shadow: 0 0 14px rgba(255,224,0,0.85);
+  display: flex; align-items: center;
+  min-width: 54px; justify-content: center;
+}
+.copy-hint {
+  background: rgba(0,14,7,0.7);
+  display: flex; align-items: center;
+  padding: 0 8px 0 4px; font-size: 12px;
+  color: rgba(255,224,0,0.55);
+  animation: copyBounce 1.8s ease-in-out infinite;
+  border-left: 1px dashed rgba(255,224,0,0.22);
+}
+
+.cta-nudge {
+  font-size: 8.5px; font-weight: 700;
+  color: rgba(255,224,0,0.62);
+  direction: rtl; white-space: nowrap;
+  letter-spacing: 0.3px;
+  opacity: 0; /* GSAP fades in after intro */
+}
+
+/* ── GLOBAL SPARKLES ── */
+.spark {
+  position: fixed; color: #ffd700;
+  pointer-events: none; z-index: 11;
+  filter: drop-shadow(0 0 4px rgba(255,215,0,0.95));
+  animation: sparkFloat 2s ease-in-out infinite;
+  opacity: 0; /* GSAP reveals */
+}
+.sp1  { left: 13%; top: 14%; font-size: 8px;  animation-delay: 0s;    animation-duration: 2.1s; }
+.sp2  { left: 38%; top: 28%; font-size: 13px; animation-delay: 0.6s;  animation-duration: 2.8s; }
+.sp3  { left:  9%; top: 72%; font-size: 7px;  animation-delay: 1.2s;  animation-duration: 1.9s; }
+.sp4  { left: 46%; top: 18%; font-size: 17px; animation-delay: 0.3s;  animation-duration: 2.5s; color: rgba(255,215,0,0.42); }
+.sp5  { left: 70%; top: 38%; font-size: 9px;  animation-delay: 0.85s; animation-duration: 3.1s; }
+.sp6  { left: 60%; top: 78%; font-size: 16px; animation-delay: 1.55s; animation-duration: 2.2s; color: rgba(255,215,0,0.38); }
+.sp7  { left: 84%; top:  8%; font-size: 10px; animation-delay: 0.4s;  animation-duration: 2.4s; }
+.sp8  { left: 26%; top: 60%; font-size: 7px;  animation-delay: 1.0s;  animation-duration: 2.0s; color: rgba(255,215,0,0.5); }
+.sp9  { left: 53%; top:  5%; font-size: 12px; animation-delay: 0.75s; animation-duration: 3.0s; }
+.sp10 { left: 77%; top: 80%; font-size: 8px;  animation-delay: 1.35s; animation-duration: 2.3s; color: rgba(255,215,0,0.45); }
+.sp11 { left:  3%; top: 40%; font-size: 9px;  animation-delay: 0.2s;  animation-duration: 2.6s; }
+.sp12 { left: 65%; top: 55%; font-size: 6px;  animation-delay: 1.7s;  animation-duration: 1.8s; color: rgba(255,215,0,0.55); }
+.sp13 { left: 21%; top: 88%; font-size: 11px; animation-delay: 0.9s;  animation-duration: 2.9s; }
+.sp14 { left: 91%; top: 48%; font-size: 7px;  animation-delay: 0.5s;  animation-duration: 2.1s; color: rgba(255,215,0,0.4); }
+
+/* ── KEYFRAMES ── */
+@keyframes globalSweep {
+  0%, 22% { left: -70%; }
+  62%, 100% { left: 130%; }
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes coinPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 2.5px #c89000, 0 0 0 5px rgba(180,128,0,0.28), 0 0 0 9px rgba(255,195,0,0.09),
+      0 0 22px rgba(255,195,0,0.9), 0 0 48px rgba(255,162,0,0.48), 0 0 80px rgba(255,140,0,0.2),
+      inset 0 2px 6px rgba(255,255,200,0.65), inset 0 -2px 5px rgba(70,35,0,0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px #ffd700, 0 0 0 6px rgba(220,165,0,0.42), 0 0 0 11px rgba(255,200,0,0.14),
+      0 0 34px rgba(255,210,0,1), 0 0 65px rgba(255,172,0,0.65), 0 0 110px rgba(255,145,0,0.28),
+      inset 0 2px 6px rgba(255,255,215,0.8), inset 0 -2px 5px rgba(70,35,0,0.45);
+  }
+}
+
+@keyframes coinSweep {
+  0%, 52% { left: -55%; }
+  80%, 100% { left: 145%; }
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 220% 0; }
+  100% { background-position: -220% 0; }
+}
+
+@keyframes livePulse {
+  0%   { transform: scale(0.95); opacity: 0.6; }
+  50%  { transform: scale(1.1);  opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.6; }
+}
+
+@keyframes ticketGlow {
+  0%, 100% { border-color: rgba(255,224,0,0.48); box-shadow: 0 0 5px rgba(255,224,0,0.12); }
+  50%       { border-color: rgba(255,224,0,1);    box-shadow: 0 0 20px rgba(255,224,0,0.68), inset 0 0 8px rgba(255,224,0,0.08); }
+}
+
+@keyframes copyBounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.5; }
+  50%       { transform: translateY(-2px); opacity: 1; }
+}
+
+@keyframes sparkFloat {
+  0%, 100% { opacity: 0;   transform: translateY(0)    scale(0.2); }
+  28%       { opacity: 1;   transform: translateY(-11px) scale(1.1); }
+  62%       { opacity: 0.4; transform: translateY(-19px) scale(0.5); }
+}

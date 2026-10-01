@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="./tags.js"></script>
+    <script src="./chart.umd.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="section">
+      <img src="bg.jpg" class="bg" alt="Background" />
+      <div class="header">
+        <img src="./logo.png" class="logo" alt="Logo" />
+      </div>
+      <div class="left">
+        <div class="timeBox">
+          <div class="segmented-control">
+            <input type="radio" name="time" id="24hours" checked />
+            <label for="24hours" class="hours checked"> امروز </label>
+            <input type="radio" name="time" id="lastWeek" />
+            <label for="lastWeek" class="lastWeek">هفته گذشته</label>
+            <input type="radio" name="time" id="lastMonth" />
+            <label for="lastMonth" class="lastMonth">ماه گذشته</label>
+          </div>
+        </div>
+        <div class="number">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 0.75rem;
+            "
+          >
+            <p class="price"></p>
+            <div
+              style="
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                background: #14f48b;
+                box-shadow: 0 0 5px #14f48b;
+                transform-origin: center;
+                animation: pulse 1s infinite alternate;
+              "
+            ></div>
+            <style>
+              @keyframes glow {
+                0% {
+                  box-shadow: 0 0 5px #14f48b;
+                }
+                100% {
+                  box-shadow: 0 0 10px #14f48b;
+                }
+              }
+
+              @keyframes pulse {
+                0% {
+                  transform: scale(1);
+                }
+                50% {
+                  transform: scale(1.3);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+            </style>
+          </div>
+          <p class="number-overline">قیمت لحظه‌ای ۱ گرم طلای ۱۸ عیار</p>
+        </div>
+        <div class="main">
+          <img src="./overline.png" class="overline" />
+          <img src="./cta.png" class="cta" />
+        </div>
+      </div>
+      <canvas id="myChart"></canvas>
+      <script src="script.js"></script>
+    </div>
+
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

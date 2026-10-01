@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/ScrollToPlugin.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <script src="tags.js"></script>
+
+  <body>
+    <!--<input type="range" id="RangeTashilat" min="10" max="500" step="10" value="100" dir="ltr"-->
+    <!--       oninput="handleRangeTashilatChange(this.value)">-->
+
+    <img class="bg" src="bg.svg" />
+    <img class="cta" src="cta.svg" />
+    <img class="baloon" src="baloon.png" />
+    <img class="header" src="header.png" />
+    <div class="row">
+      <img class="logo" src="logo.svg" />
+      <img class="tag" src="tag.png" />
+      <img class="overline" src="overline.svg" />
+    </div>
+
+    <div
+      style="position: fixed; right: 2%; bottom: 5px; width: 72%; height: 50px"
+    >
+      <div class="container">
+        <svg class="border-svg" width="100%" height="100%">
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            rx="10"
+            ry="10"
+            fill="none"
+            stroke="#00C8FF"
+            stroke-width="2"
+            stroke-dasharray="8 2"
+            stroke-dashoffset="0"
+          />
+        </svg>
+
+        <p class="bazpardakht">
+          بازپرداخت ماهانه:
+          <span>۱۰۰،۰۰۰،۰۰۰</span>
+          تومان
+        </p>
+
+        <p class="mablagh">
+          <span>۱۰۰،۰۰۰،۰۰۰</span>
+          تومان
+        </p>
+
+        <input
+          type="range"
+          id="RangeTashilat"
+          min="100000000"
+          max="700000000"
+          step="100000000"
+          value="200000000"
+          dir="ltr"
+          oninput="handleInputChanges(this)"
+        />
+      </div>
+    </div>
+    <img
+      style="position: fixed; left: 5px; top: 5px"
+      src="https://cdn.yektanet.com/assets/images/yektanet-logo.webp"
+      alt="yn-ad"
+      title="یکتانت"
+      width="14px"
+      height="14px"
+      class="yektanet_logo"
+    />
+
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+
+  <script src="script.js"></script>
+</html>

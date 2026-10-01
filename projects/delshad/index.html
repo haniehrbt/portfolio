@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>uranus-agency.ir</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="tags.js"></script>
+  </head>
+  <body>
+    <div class="slide1">
+      <img src="./intro.png" class="intro" />
+      <img src="./dancing.gif" class="guitar" />
+      <img src="./rightlogo.png" class="rightlogo" />
+    </div>
+
+    <div class="slide2">
+      <img class="logo" src="logo.png" />
+      <img class="bg" src="bg.png" />
+      <img class="cta" src="cta.png" />
+      <img src="./overline.svg" class="overline" />
+      <img src="./overline2.svg" class="overline1" />
+      <img src="./offer.png" class="offer" />
+      <div class="productContainer">
+        <img src="./stage.png" class="stage" />
+        <img src="./product1.png" class="product1 product" />
+        <img src="./product2.png" class="product2 product" />
+        <img src="./product3.png" class="product3 product" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

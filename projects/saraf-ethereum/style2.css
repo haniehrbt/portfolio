@@ -1,0 +1,252 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Peyda', 'Roboto', sans-serif;
+}
+@font-face {
+  font-family: 'digital';
+  src: url('digital-7.woff') format('woff');
+}
+@font-face {
+  font-family: 'Peyda';
+  src: url('Peyda-Regular.woff') format('woff');
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bg::-webkit-media-controls {
+  display: none !important;
+}
+
+.bg::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.bg::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.bg::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+.bg {
+  position: fixed;
+  z-index: 0;
+  height: 125px;
+  width: 100vw;
+  text-align: center;
+  object-fit: cover;
+  object-position: left;
+  bottom: 0;
+  left: 50%;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  transform: translateX(-50%);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-appearance: none;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  .bg {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+.bg,
+.gradiant,
+.logo,
+#timerDisplay,
+.overline,
+.cta {
+  opacity: 0;
+}
+
+.right {
+  position: fixed;
+  right: 10px;
+  bottom: -5px;
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  padding: 5px;
+  gap: 13px;
+  /*border:  1px solid red;*/
+}
+
+.logo {
+  position: fixed;
+  bottom: 105px;
+  right: 32px;
+  z-index: 999;
+}
+
+.price-container {
+  position: fixed;
+  bottom: 18px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  text-align: left;
+  color: #ffcc16;
+  z-index: 2;
+  pointer-events: none;
+  animation: pulse 2.5s infinite;
+  perspective: 900px;
+}
+
+/*.price-flip {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 6px;*/
+/*  transform-style: preserve-3d;*/
+/*}*/
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffcc16;
+}
+
+.priceText {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffcc16;
+  text-shadow: 0 0 12px rgba(255, 204, 22, 0.6);
+  direction: ltr;
+  font-family: digital;
+}
+
+.price-unit {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cta {
+  animation: pulse 1s infinite;
+  border: 1px solid #ffcc16;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #ffcc16;
+}
+
+.timer {
+  position: relative;
+  height: 54px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transform: translateX(8px) translateY(7px);
+  box-sizing: border-box;
+}
+
+#timerDisplay {
+  color: #ffcc16;
+  /*width: 130px;*/
+  position: fixed;
+  bottom: 90px;
+  left: 25px;
+  border: #ffcc16 2px solid;
+  display: flex;
+  gap: 6px;
+  scale: 0.5;
+  direction: ltr;
+  padding: 5px 6px;
+  align-items: center;
+  background-color: #054034;
+  z-index: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ffcc16;
+}
+
+.timer-digits {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  order: 1;
+}
+
+.digit-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.digit-row {
+  display: flex;
+  gap: 4px;
+}
+
+.time-caption {
+  font-size: 10px;
+  color: #ffcc16;
+  font-weight: 600;
+}
+
+.timer-label {
+  order: 2;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffcc16;
+  white-space: nowrap;
+  margin-bottom: 15px;
+}
+
+#timerDisplay .colon {
+  color: #ffcc16;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+#timerDisplay .time {
+  width: 20px;
+  height: 26px;
+  border-radius: 5px;
+  background: #ffcc16;
+  /*padding: 10px;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  vertical-align: middle;
+  color: #054034;
+  font-family: digital;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

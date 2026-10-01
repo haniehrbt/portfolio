@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+}
+
+.container {
+  border-radius: 10px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  aspect-ratio: 1/1;
+  bottom: 10px;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.container-left {
+  left: 5%;
+}
+
+.container-right {
+  left: 42%;
+}
+
+.inner img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner .intro {
+  position: absolute;
+  bottom: 0;
+  top: initial;
+  transform: initial;
+  height: 90%;
+  width: auto;
+}
+
+.inner .intro-right {
+  right: 0;
+  border-bottom-right-radius: 10px;
+}
+
+.inner .intro-left {
+  left: 0 !important;
+  border-bottom-right-radius: 10px;
+}
+
+.inner-left .header {
+  bottom: 0;
+  top: -10px;
+  right: 10px;
+  transform: initial;
+  height: 20px;
+  width: initial;
+}
+
+.inner-right .header {
+  bottom: 0;
+  top: -10px;
+  left: 10px;
+  transform: initial;
+  height: 20px;
+  width: initial;
+}
+
+.hand {
+  z-index: 999999999;
+}
+
+.container .inner-right .hand {
+  top: auto;
+  bottom: -5px;
+  right: 5px;
+  transform: initial;
+  height: 30px;
+  width: initial;
+  animation: tapesh 0.5s infinite linear;
+}
+.tapesh2 {
+  animation: tapesh2 0.5s infinite linear;
+}
+.container .inner-left .hand {
+  top: auto;
+  bottom: -5px;
+  left: 5px;
+  transform: initial;
+  height: 30px;
+  width: initial;
+  animation: tapesh 0.5s infinite linear;
+}
+
+.inner .cta {
+  opacity: 0;
+  width: 80px;
+  height: auto;
+}
+
+.inner .overline {
+  opacity: 0;
+  width: initial;
+  transform: initial;
+  height: 70%;
+  left: 7%;
+  top: 10%;
+}
+
+.inner .cta {
+  opacity: 0;
+  width: initial;
+  transform: initial;
+  height: 15%;
+  left: 7%;
+  top: 67%;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes tapesh2 {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.bg {
+  opacity: 0;
+  border-radius: 10px;
+}
+
+.inner-left .color {
+  object-position: left;
+  /*transform-origin: left;*/
+}

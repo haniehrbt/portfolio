@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style1.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="slide1">
+      <img src="./logo.png" class="logo" />
+      <img src="./motion.gif" class="motion" />
+    </div>
+    <div class="slide2">
+      <div class="right">
+        <img src="./mainLogo.png" class="mainLogo" />
+        <img src="./title.png" class="title" />
+        <img src="./overline1.png" class="overline1" />
+        <img src="./line.svg" class="line" />
+        <img src="./overline2.png" class="overline2" />
+        <img src="./cta.png" class="cta" />
+      </div>
+      <img src="./bg.png" class="bg" />
+      <div class="left">
+        <img src="./mobile.png" class="mobile" />
+        <img src="./product1.png" class="product1 product" />
+        <img src="./product2.png" class="product2 product" />
+        <img src="./product3.png" class="product3 product" />
+        <img src="./product4.png" class="product4 product" />
+        <img src="./product5.png" class="product5 product" />
+        <img src="./product6.png" class="product6 product" />
+        <img src="./product7.png" class="product7 product" />
+        <img src="./product8.png" class="product8 product" />
+        <img src="./product9.png" class="product9 product" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

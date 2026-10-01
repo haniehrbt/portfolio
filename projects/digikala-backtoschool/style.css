@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Peyda bold', sans-serif;
+}
+body {
+  width: 100%;
+  height: 100%;
+  /*border: 2px solid red;*/
+  scrollbar-color: transparent transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+}
+/*.slide1{*/
+/*display: none}*/
+.slide1,
+.slide2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.slide2 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(-100%);
+}
+.shadow-bg1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+}
+
+.left {
+  position: fixed;
+  height: 120px;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+}
+.grouppProducts {
+  height: 80%;
+}
+.logo {
+  position: fixed;
+  width: 106px;
+  right: 20px;
+  bottom: 84px;
+}
+.overline {
+  position: fixed;
+  width: 90px;
+  right: 20px;
+  bottom: 35px;
+}
+
+.cta {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  animation: pulse 0.8s infinite;
+}
+.attach {
+  position: fixed;
+  right: 100px;
+  bottom: 115px;
+  width: 30px;
+  opacity: 0;
+}
+.bgContainer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.shadow-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 125px;
+  width: 100%;
+}
+
+.magnetContainer {
+  position: fixed;
+  bottom: -2px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -10%);
+  width: 200px;
+}
+
+.magnet {
+  width: 100%;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 88px;
+  left: calc((100% - 358px) / 2);
+  display: flex;
+  flex-direction: column;
+  width: 20px;
+  gap: 5px;
+  z-index: 3;
+}
+
+.right-button,
+.left-button {
+  width: 20px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.right-button:hover,
+.left-button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.right-button:active,
+.left-button:active {
+  transform: scale(0.95);
+}
+
+.right {
+  position: fixed;
+  width: 70px;
+  right: 8px;
+  bottom: 0;
+  transform: translateX(-5px);
+}
+
+.note {
+  width: 94%;
+  position: fixed;
+  bottom: 0;
+  right: calc((100vw - 360px) / 2);
+  z-index: 1000;
+}
+
+.product img:not(.stage) {
+  position: relative;
+  z-index: 2;
+  max-width: 75%;
+}
+
+.back-carousel {
+  position: fixed;
+  /*width: 330px;*/
+  height: 55%;
+  bottom: 72px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+}
+
+.CarouselContainer {
+  position: fixed;
+  width: 265px;
+  left: 50%;
+  transform: translateX(-60%);
+  bottom: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: none; /* Remove CSS transition since we're using GSAP */
+  width: max-content;
+  will-change: transform; /* Optimize for animations */
+}
+
+.product {
+  position: relative;
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  z-index: 1;
+  min-width: 0;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.product img {
+  max-width: 90%;
+}
+
+.product-clone-static {
+  filter: grayscale(100%);
+  pointer-events: none;
+  flex: 0 0 20%;
+  padding-top: 5px;
+}
+
+.product img.stage {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.pulse {
+  animation: pulse 1s alternate infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

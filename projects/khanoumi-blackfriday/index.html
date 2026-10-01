@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>uranus-agency.ir</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="tags.js"></script>
+  </head>
+  <body>
+    <img class="bag" src="bag.gif" />
+    <img class="percent" src="percent.gif" />
+
+    <img class="logo" src="snapp.png" />
+    <img class="snapp" src="logo.png" />
+    <img class="overline" src="overline.svg" />
+    <img class="cta tapesh" src="cta.svg" />
+    <div class="bg"></div>
+
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candy Crush Style Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="gsap.min.js"></script>
+    <script src="Draggable.min.js"></script>
+  </head>
+
+  <body>
+    <div id="startDialog" class="dialog-overlay">
+      <button id="startCloseIcon" class="close-icon">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6 6L18 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <div class="dialog-content">
+        <div class="dialog-logo">
+          <img src="logo.svg" alt="Logo" class="logo" />
+        </div>
+        <h2>ثبت‌نام کن جایزه‌تو بگیر!</h2>
+        <p>
+          <b>۵۰ میلیون بیبی دوج</b>
+          بابت ثبت‌نام
+        </p>
+        <button id="startBtn" class="start-button">شروع بازی</button>
+      </div>
+    </div>
+
+    <div id="endDialog" class="dialog-overlay hidden">
+      <button id="endCloseIcon" class="close-icon">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6 6L18 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <div class="dialog-content">
+        <div class="dialog-logo">
+          <img src="logo.svg" alt="Logo" class="logo" />
+        </div>
+        <h2>50 میلیون بیبی دوج بابت ثبت‌نام</h2>
+        <p>امتیاز نهایی شما:</p>
+        <div id="finalScore" class="final-score">0</div>
+        <button id="rewardBtn" class="reward-button">دریافت جایزه</button>
+      </div>
+    </div>
+
+    <div id="gameContainer" class="game-container hidden">
+      <header class="game-header">
+        <div class="game-title">ارزهای دیجیتال مشابه رو کنار هم بذار!</div>
+        <div style="margin-top: -10px; scale: 0.9" class="game-title">
+          بازی کن جایزه بگیر!
+        </div>
+        <div class="stats-container">
+          <div class="timer-section">
+            <div class="timer-value" id="timer">20</div>
+            <div class="timer-label">زمان</div>
+          </div>
+          <button id="shuffleBtn" class="shuffle-button">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 3h5v5"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 21H3v-5"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21 3l-7 7-4-4-6 6"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 21l7-7 4 4 6-6"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="score-section">
+            <div class="score-value" id="score">0</div>
+            <div class="score-label">امتیاز</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="game-grid" id="gameGrid"></div>
+
+      <div id="helpingHand" class="helping-hand hidden">
+        <img
+          src="hand.png"
+          alt="Helping Hand"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='🖐️';"
+        />
+      </div>
+
+      <div class="logo-container">
+        <div class="logo-content">
+          <img src="logo.svg" alt="Logo" class="logo" />
+          <p class="logo-text">
+            خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

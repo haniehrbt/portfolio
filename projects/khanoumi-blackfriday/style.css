@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.percent {
+  opacity: 1;
+  position: fixed;
+  left: -150px;
+  bottom: 20px;
+  height: 150px;
+  z-index: 0;
+}
+
+.bag {
+  position: fixed;
+  left: 50%;
+  bottom: 150px;
+  transform: translateX(-50%);
+  height: 180px;
+  z-index: 10;
+}
+
+.bg {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 5%,
+    rgb(219, 39, 119) 120%
+  );
+  border-radius: 10px;
+  bottom: 5px;
+  right: 5px;
+  width: 50%;
+  height: 140px;
+  position: fixed;
+  border: 3px solid #db2777;
+  box-shadow: 0px 2px 5px #db2777;
+  z-index: -9999;
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+
+.overline {
+  position: fixed;
+  right: calc(5% + 12px);
+  top: 55px;
+  width: 35%;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.cta {
+  position: fixed;
+  right: calc(5% + 37px);
+  bottom: 10%;
+  width: 22%;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.tapesh {
+  transform-origin: center center;
+  animation: tapesh 0.6s infinite ease-in;
+}
+.tapesh2 {
+  transform-origin: center center;
+  animation: tapesh 1.5s infinite ease-in;
+}
+.snapp {
+  position: fixed;
+  right: calc(5% + 10px);
+  bottom: 198px;
+  /*98*/
+  width: 60px;
+  z-index: 9999;
+}
+
+.logo {
+  position: fixed;
+  right: calc(5% + 90px);
+  bottom: 198px;
+  /*98*/
+  width: 60px;
+  z-index: 9999;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}

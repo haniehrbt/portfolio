@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "IRANSans";
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('IRANSansWeb.woff') format('woff');
+}
+
+.bar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 10px;
+    border-radius: 999px;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+}
+
+.barContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gradient-fill {
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 0;
+    height: calc(100% - 5px);
+    border-radius: 999px;
+    z-index: 2;
+    background: #5AD941;
+    background: linear-gradient(90deg, rgba(90, 217, 65, 1) 9%, rgba(100, 176, 84, 1) 28%, rgba(78, 138, 66, 1) 63%, rgba(177, 215, 169, 1) 100%);
+}
+.bg-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 98%;
+    height: 83%;
+    background: linear-gradient(90deg, rgba(145, 81, 217, 1) 0%, rgba(95, 36, 162, 1) 100%);
+    border-radius: 20px 20px 0 0;
+    z-index: 4;
+    opacity: 0;
+}
+
+.logo2 {
+    position: fixed;
+    opacity: 0;
+    z-index: 8;
+    width: 115px;
+    height: auto;
+}
+
+.overline {
+    position: fixed;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    direction: rtl;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 8;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+.cta {
+    position: fixed;
+    opacity: 0;
+    z-index: 8;
+}
+
+.logo {
+    position: fixed;
+    left: -150px;
+    bottom: 112px;
+    width: 133.38px;
+    opacity: 0;
+}
+
+.carContainer {
+    position: absolute;
+    right: -200px;
+    top: 50%;
+    transform: translateY(-60%);
+    z-index: 3;
+}
+
+.carBody {
+    position: relative;
+    display: inline-block;
+    transform-origin: center bottom;
+}
+
+.car {
+    width: 130px;
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+.stats-box {
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    white-space: nowrap;
+    height: 22px;
+    padding: 0 9px;
+    border-radius: 999px;
+    background: #6421A1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: 700;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(30, 3, 56, 0.25);
+    opacity: 0;
+}
+
+.wheel {
+    position: absolute;
+    width: 25px;
+    height: 23px;
+    z-index: 900;
+    opacity: 1;
+    transform-origin: 50% 50%;
+}
+
+
+.wheel-front {
+    left: 10px;
+    top: 28px;
+}
+
+.wheel-back {
+    left: 91px;
+    top: 28px;
+}
+
+.stats-number {
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    min-width: 14px;
+    text-align: center;
+    color: #64B054;
+}
+
+.stats-label {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    direction: rtl;
+    color: #64B054;
+}

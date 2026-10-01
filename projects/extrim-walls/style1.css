@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+.yektanet_logo {
+    position: fixed;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 4px;
+}
+body {
+    width: 100%;
+    height: 120px;
+    scrollbar-color: transparent transparent;
+    display: flex;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    height: 120px;
+    display: flex;
+}
+.background{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: -1;
+}
+
+.left {
+    position: fixed;
+    width: 40%;
+    height: 90px;
+    left: 2px;
+    bottom: 0;
+    /*border: 2px solid red;*/
+    /*padding: 5px 0 0 10px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.overline {
+    width: auto;
+    height: auto;
+    max-width: 125px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    /*border: 2px solid red;*/
+    align-items: center;
+    gap: 5px;
+    margin-right: 15px;
+}
+.cta {
+    width: 60px;
+    height: 20px;
+}
+.phoneNumber {
+    width: 55px;
+    height: 25px;
+    margin-right: 5px;
+}
+.right {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    /*border: 2px solid green;*/
+    width: 65%;
+    height: 100%;
+}
+.bgWall {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 115px;
+    height: 100px;
+}
+.overline2 {
+    position: fixed;
+    z-index: 0;
+    top: 55%;
+    right: 45%;
+    width: 65px;
+}
+
+#rollContainer,
+#wallContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: -5px;
+    height: 100px;
+    justify-content: left;
+    position: fixed;
+    right: 115px;
+    bottom: 0;
+    z-index: -1;
+}
+
+#rollContainer {
+    z-index: 0;
+}
+
+.roll {
+    height: 25px;
+    z-index: 9999;
+    opacity: 0;
+    width: 65px;
+    margin-right: -1px;
+}
+
+.wall {
+    opacity: 0;
+    /*border: 2px solid red;*/
+    z-index: 9998;
+    margin-right: -5px;
+
+}
+
+
+.productContainer {
+    position: fixed;
+    /*border: 1px solid green;*/
+    width: 95px;
+    height: 100%;
+    padding-right: 2px;
+}
+
+.content {
+    opacity: 0;
+    position: fixed;
+    z-index: -9999999999;
+    right: 15px;
+    bottom: 0;
+    top: 0;
+    /*border: 1px solid red;*/
+    width: 100px;
+    height: 120px;
+    overflow-y: hidden;
+}
+
+.item {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /*border: 2px solid blue;*/
+    height: 120px;
+}
+
+.product {
+    position: fixed;
+    width: 110px;
+    height: 120px;
+    bottom: 0;
+}
+.wall1 {
+    animation: up2downFadeIn1 1s forwards ease-out;
+}
+
+.wall2 {
+    animation: up2downFadeIn2 1s forwards ease-out;
+}
+
+
+@keyframes up2downFadeIn1 {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 68% 0);
+    }
+}
+
+@keyframes up2downFadeIn2 {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 30% 0);
+    }
+}

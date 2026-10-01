@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script type="module" src="model-viewer.min.js"></script>
+    <script src="tags.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <video class="bg" loop muted playsinline>
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+    <div class="bg bg2"></div>
+    <img class="ring" src="ring.png" />
+    <img class="orbit" src="orbits.png" />
+    <img class="logo" src="logo.png" />
+    <img class="pic" src="pic.png" />
+    <img class="overline" src="overline.png" />
+    <img class="planet-pic" src="planet-pic.png" />
+
+    <img class="fal" src="fal-begir.png" />
+    <img class="again" src="again.png" />
+    <img class="demos" src="demos.png" />
+
+    <div class="fal-container">
+      <div
+        style="
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll;
+        "
+      >
+        <div class="fal-text-container">
+          <p class="fal-text">اگر آن ترک شیرازی به دست آرد دل ما را</p>
+          <p class="fal-text">به خال هندویش بخشم سمرقند و بخارا را</p>
+          <p class="fal-text">بده ساقی میِ باقی که در جنت نخواهی یافت</p>
+          <p class="fal-text">کنار آب رکن‌آباد و گلگشتِ مُصلّا را</p>
+        </div>
+
+        <div class="tafsir-container">
+          <p
+            class="tafsir-header"
+            style="font-family: peydabold, sans-serif; direction: rtl"
+          >
+            تفسیر فال:
+          </p>
+          <p
+            class="tafsir"
+            style="font-family: peydasemibold, sans-serif; direction: rtl"
+          >
+            دل در تلاطم است و رازی در آستانه‌ی آشکار شدن. با وجود آشفتگی، امید
+            به گشایش و دیداری دوباره هست؛ اگر صبر کنی و دل به حرکت بسپاری. دل در
+            تلاطم است و رازی در آستانه‌ی آشکار شدن. با وجود آشفتگی، امید به
+            گشایش و دیداری دوباره هست؛ اگر صبر کنی و دل به حرکت بسپاری.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Uranus 3D Planet -->
+    <div class="uranus-planet">
+      <div class="planet-system">
+        <div class="orbit-track" id="orbitTrack">
+          <img class="orbit-product" alt="Product" src="product1.png" />
+          <img class="orbit-product" alt="Product" src="product2.png" />
+          <img class="orbit-product" alt="Product" src="product1.png" />
+          <img class="orbit-product" alt="Product" src="product2.png" />
+          <img class="orbit-product" alt="Product" src="product1.png" />
+          <img class="orbit-product" alt="Product" src="product2.png" />
+          <img class="orbit-product" alt="Product" src="product1.png" />
+          <img class="orbit-product" alt="Product" src="product2.png" />
+        </div>
+      </div>
+    </div>
+
+    <model-viewer
+      class="model uranus"
+      id="modelViewer"
+      src="kore3.glb"
+      camera-controls=""
+      tone-mapping="neutral"
+      shadow-intensity="0"
+      shadow-softness="1"
+      autoplay=""
+      exposure="1"
+      disable-zoom=""
+      disable-progress-bar=""
+      disable-tap=""
+      ar-status="not-presenting"
+    >
+    </model-viewer>
+  </body>
+  <script src="script.js"></script>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+      var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    click_url = getParameterByName('click_url');
+    if (click_url) {
+      document.addEventListener('click', function () {
+        open(click_url);
+      });
+    }
+  </script>
+</html>

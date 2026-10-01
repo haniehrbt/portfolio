@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.float {
+  animation: float 1.5s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    bottom: 10px;
+  }
+  50% {
+    bottom: 4px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
+.tapesh {
+  animation: tapesh 1s infinite ease-in-out;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  filter: blur(1px);
+}
+
+.garage {
+  position: fixed;
+  width: 178.45px;
+  height: 138.37px;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 30;
+}
+
+.charchoob {
+  position: absolute;
+  width: 178.45px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.kerkere {
+  position: absolute;
+  width: 175px;
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  object-fit: contain;
+}
+
+.bg {
+  position: fixed;
+  width: calc(100% - 178.45px);
+  height: 95px;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  background: linear-gradient(45deg, #d43003 0%, #ff6136 100%);
+  opacity: 0;
+  z-index: 1;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.product {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  height: 100px;
+  opacity: 0;
+}
+
+.fixOverline {
+  position: absolute;
+  width: 128px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15px;
+  z-index: 10;
+}
+
+.overline {
+  position: absolute;
+  width: 128px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 37px;
+  opacity: 0;
+}
+
+.cta {
+  position: absolute;
+  width: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  transform-origin: left center;
+}
+
+.logo {
+  position: fixed;
+  left: 49%;
+  bottom: 0;
+  top: initial;
+  transform: translate(10%, 0%);
+  z-index: 0;
+  width: 145px;
+  opacity: 0;
+}
+
+.content {
+  height: 600vh;
+}
+
+.item {
+  height: 100vh;
+}
