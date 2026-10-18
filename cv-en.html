@@ -6,55 +6,63 @@
   <title>Hanieh Robati — Front-End Developer CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:        #0d1117;
-      --surface:   #161b22;
-      --border:    #21262d;
-      --accent:    #58a6ff;
-      --accent2:   #3d8bcd;
-      --text:      #e6edf3;
-      --muted:     #8b949e;
-      --tag-bg:    #1c2a3a;
-      --tag-text:  #79c0ff;
-      --soft-bg:   #1a2310;
-      --soft-text: #7ee787;
-      --soft-brd:  rgba(126,231,135,0.25);
+      /* Color Palette */
+      --color-bg:          #0d1117;
+      --color-surface:     #161b22;
+      --color-border:      #21262d;
+      --color-accent:      #58a6ff;
+      --color-accent-sub:  #3d8bcd;
+      --color-text-main:   #e6edf3;
+      --color-text-muted:  #8b949e;
+      --color-tag-bg:      #1c2a3a;
+      --color-tag-text:    #79c0ff;
+      --color-soft-bg:     #1a2310;
+      --color-soft-text:   #7ee787;
+      --color-soft-border: rgba(126, 231, 135, 0.25);
+
+      /* Typography & Spacing */
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
     }
 
-    html { font-size: 15px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 15px; scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
       line-height: 1.6;
+      text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Page Container — Fluid Spacing */
-    .page {
+    /* CV Layout Container */
+    .cv-card {
       max-width: 860px;
       margin: clamp(0px, 4vw, 40px) auto;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: clamp(0px, 2vw, 12px);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: clamp(0px, 2vw, var(--radius-lg));
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
       position: relative;
       overflow: hidden;
     }
 
-    /* Language Switcher */
+    /* Language Switcher Component */
     .lang-switcher {
       position: absolute;
       top: clamp(16px, 3vw, 36px);
       right: clamp(16px, 4vw, 48px);
       display: inline-flex;
       background: rgba(13, 17, 23, 0.85);
-      border: 1px solid var(--border);
+      border: 1px solid var(--color-border);
       border-radius: 20px;
       padding: 3px;
       gap: 2px;
@@ -63,7 +71,7 @@
     }
 
     .lang-link {
-      color: var(--muted);
+      color: var(--color-text-muted);
       padding: 3px 10px;
       font-size: 0.72rem;
       font-weight: 700;
@@ -73,17 +81,18 @@
     }
 
     .lang-link.active {
-      background: var(--accent);
+      background: var(--color-accent);
       color: #ffffff;
     }
 
-    /* Header — Responsive Flex Container */
+    /* Header Component */
     .header {
-      background: linear-gradient(135deg, #0d2137 0%, #111827 60%, #0d1117 100%);
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #0d2137 0%, #111827 60%, var(--color-bg) 100%);
+      border-bottom: 1px solid var(--color-border);
       padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 48px) clamp(20px, 3vw, 32px);
       position: relative;
     }
+
     .header::after {
       content: '';
       position: absolute;
@@ -91,9 +100,10 @@
       left: clamp(20px, 5vw, 48px);
       right: clamp(20px, 5vw, 48px);
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+      background: linear-gradient(90deg, transparent, var(--color-accent-sub), transparent);
       opacity: 0.4;
     }
+
     .header-inner {
       display: flex;
       flex-wrap: wrap;
@@ -101,7 +111,8 @@
       align-items: flex-start;
       gap: 24px;
     }
-    .header-left {
+
+    .header-profile {
       display: flex;
       gap: 20px;
       align-items: center;
@@ -111,24 +122,23 @@
     }
 
     .photo-wrap {
-      width: 72px; height: 72px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      border: 2px solid rgba(88,166,255,.25);
+      border: 2px solid rgba(88, 166, 255, 0.25);
       overflow: hidden;
       flex-shrink: 0;
-      background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      font-size: 0.7rem;
-      text-align: center;
-      line-height: 1.3;
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
     .photo-placeholder {
       font-size: 0.62rem;
-      color: var(--muted);
-      text-align: center;
-      padding: 6px;
+      color: var(--color-text-muted);
       opacity: 0.6;
     }
 
@@ -136,15 +146,14 @@
       font-size: clamp(1.6rem, 3vw, 2.1rem);
       font-weight: 700;
       letter-spacing: -0.5px;
-      color: var(--text);
       line-height: 1.15;
     }
+
     .name-block .title {
       font-size: 1rem;
       font-weight: 500;
-      color: var(--accent);
+      color: var(--color-accent);
       margin-top: 6px;
-      letter-spacing: 0.4px;
     }
 
     .contact-block {
@@ -152,139 +161,144 @@
       flex-direction: column;
       gap: 7px;
       align-items: flex-start;
-      flex-shrink: 0;
       margin-top: 18px;
       flex: 1 1 200px;
     }
+
     .contact-block a,
     .contact-block span {
       font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
-    .contact-block a:hover { color: var(--accent); }
+
+    .contact-block a:hover { color: var(--color-accent); }
     .contact-block .icon { width: 14px; height: 14px; opacity: 0.7; flex-shrink: 0; }
 
-    /* About Strip */
+    /* Summary Section */
     .about-strip {
       padding: 20px clamp(20px, 5vw, 48px);
-      border-bottom: 1px solid var(--border);
-      background: rgba(88,166,255,.03);
+      border-bottom: 1px solid var(--color-border);
+      background: rgba(88, 166, 255, 0.03);
     }
+
     .about-strip p {
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
       line-height: 1.75;
       max-width: 720px;
     }
-    .about-strip p strong { color: var(--text); font-weight: 600; }
 
-    /* Portfolio Banner Box — Responsive Flex Wrap */
+    .about-strip strong { color: var(--color-text-main); font-weight: 600; }
+
+    /* Portfolio CTA Box */
     .portfolio-banner {
       margin: 16px clamp(20px, 5vw, 48px);
       padding: 14px 20px;
       background: rgba(26, 35, 16, 0.4);
-      border: 1px solid var(--soft-brd);
-      border-radius: 8px;
+      border: 1px solid var(--color-soft-border);
+      border-radius: var(--radius-md);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
     }
+
     .portfolio-banner-text {
       font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.5;
+      color: var(--color-text-muted);
       flex: 1 1 260px;
     }
+
     .inline-portfolio-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--soft-bg);
-      color: var(--soft-text);
-      border: 1px solid var(--soft-brd);
+      background: var(--color-soft-bg);
+      color: var(--color-soft-text);
+      border: 1px solid var(--color-soft-border);
       padding: 6px 14px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.25s ease;
-      box-shadow: 0 2px 8px rgba(126, 231, 135, 0.08);
       white-space: nowrap;
-      flex-shrink: 0;
     }
+
     .inline-portfolio-btn:hover {
       background: rgba(126, 231, 135, 0.22);
       border-color: #7ee787;
       color: #ffffff;
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(126, 231, 135, 0.22);
-    }
-    .inline-portfolio-btn .icon {
-      width: 13px;
-      height: 13px;
-      flex-shrink: 0;
     }
 
-    /* Body Layout — Auto-responsive Grid */
-    .body {
+    /* Main Grid Structure */
+    .body-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--color-border);
     }
+
     .main-col {
       padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 40px) 40px clamp(20px, 5vw, 48px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--color-border);
     }
+
     .side-col {
       padding: clamp(24px, 4vw, 36px) clamp(20px, 3vw, 28px) 40px;
     }
 
-    /* Sections */
+    /* Generic Section Component */
     .section { margin-bottom: 32px; }
     .section:last-child { margin-bottom: 0; }
+
     .section-title {
       font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      color: var(--accent);
+      color: var(--color-accent);
       margin-bottom: 16px;
       padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--color-border);
     }
 
+    /* Experience Items */
     .exp-item { margin-bottom: 24px; }
     .exp-item:last-child { margin-bottom: 0; }
+
     .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 3px;
     }
-    .exp-role { font-size: 0.95rem; font-weight: 600; color: var(--text); }
-    .exp-period { font-size: 0.75rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-    .exp-company { font-size: 0.82rem; color: var(--accent); margin-bottom: 9px; font-weight: 500; }
-    .exp-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-    .exp-desc ul { list-style: none; padding: 0; margin: 0; }
-    .exp-desc ul li { position: relative; padding-left: 14px; margin-bottom: 5px; }
-    .exp-desc ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
 
+    .exp-role { font-size: 0.95rem; font-weight: 600; color: var(--color-text-main); }
+    .exp-period { font-size: 0.75rem; color: var(--color-text-muted); white-space: nowrap; }
+    .exp-company { font-size: 0.82rem; color: var(--color-accent); margin-bottom: 9px; font-weight: 500; }
+    .exp-desc { font-size: 0.82rem; color: var(--color-text-muted); }
+    .exp-desc ul { list-style: none; }
+    .exp-desc ul li { position: relative; padding-left: 14px; margin-bottom: 5px; }
+    .exp-desc ul li::before { content: '·'; position: absolute; left: 0; color: var(--color-accent-sub); font-weight: 700; }
+
+    /* Project Cards */
     .project-grid { display: flex; flex-direction: column; gap: 10px; }
+    
     .project-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
       padding: 12px 15px;
     }
+
     .project-card-header {
       display: flex;
       justify-content: space-between;
@@ -293,42 +307,48 @@
       margin-bottom: 4px;
       flex-wrap: wrap;
     }
-    .project-name { font-size: 0.84rem; font-weight: 600; color: var(--text); }
-    .project-client { font-size: 0.72rem; color: var(--accent); font-weight: 500; }
-    .project-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
 
+    .project-name { font-size: 0.84rem; font-weight: 600; color: var(--color-text-main); }
+    .project-client { font-size: 0.72rem; color: var(--color-accent); font-weight: 500; }
+    .project-desc { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.55; }
+
+    /* Tags & Pills */
     .skill-group { margin-bottom: 14px; }
     .skill-group:last-child { margin-bottom: 0; }
+    
     .skill-group-label {
       font-size: 0.67rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: var(--muted);
+      color: var(--color-text-muted);
       margin-bottom: 6px;
     }
+
     .tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
+    
     .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
       font-size: 0.72rem;
       font-weight: 500;
       padding: 3px 9px;
       border-radius: 20px;
-      border: 1px solid rgba(88,166,255,0.12);
+      border: 1px solid rgba(88, 166, 255, 0.12);
     }
+
     .tag.soft {
-      background: var(--soft-bg);
-      color: var(--soft-text);
-      border-color: var(--soft-brd);
+      background: var(--color-soft-bg);
+      color: var(--color-soft-text);
+      border-color: var(--color-soft-border);
     }
 
     .brand-list { display: flex; flex-wrap: wrap; gap: 5px; }
     .brand-tag {
       font-size: 0.72rem;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
+      color: var(--color-text-muted);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
       border-radius: 5px;
       padding: 3px 8px;
     }
@@ -336,50 +356,51 @@
     .side-item {
       margin-bottom: 7px;
       font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .side-item::before {
       content: '';
-      width: 4px; height: 4px;
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
-      background: var(--accent2);
+      background: var(--color-accent-sub);
       flex-shrink: 0;
     }
 
     .edu-item { margin-bottom: 14px; }
     .edu-item:last-child { margin-bottom: 0; }
-    .edu-degree { font-size: 0.82rem; font-weight: 600; color: var(--text); }
-    .edu-school { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .edu-degree { font-size: 0.82rem; font-weight: 600; color: var(--color-text-main); }
+    .edu-school { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 2px; }
   </style>
 </head>
 <body>
-  <div class="page">
 
-    <!-- ── LANGUAGE SWITCHER ── -->
-    <div class="lang-switcher">
-      <a href="index.html" class="lang-link active">EN</a>
-      <a href="fa.html" class="lang-link">FA</a>
-    </div>
+  <div class="cv-card">
 
-    <!-- ── HEADER ── -->
+    <nav class="lang-switcher" aria-label="Language selection">
+      <a href="cv-en.html" class="lang-link active" aria-current="page">EN</a>
+      <a href="cv-fa.html" class="lang-link">FA</a>
+    </nav>
+
     <header class="header">
       <div class="header-inner">
-        <div class="header-left">
+        <div class="header-profile">
           <div class="photo-wrap">
             <img src="photo.jpg" alt="Hanieh Robati" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="photo-placeholder" style="display:none">HR</span>
           </div>
           <div class="name-block">
             <h1>Hanieh Robati</h1>
-            <div class="title">Front-End Developer</div>
+            <p class="title">Front-End Developer</p>
           </div>
         </div>
 
-        <div class="contact-block">
-          <a href="https://github.com/haniehrbt" target="_blank">
+        <address class="contact-block">
+          <a href="https://github.com/haniehrbt" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
             github.com/haniehrbt
           </a>
@@ -387,7 +408,7 @@
             <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg>
             hnieh.rbt@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/haniehrobati" target="_blank">
+          <a href="https://www.linkedin.com/in/haniehrobati" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
             linkedin.com/in/haniehrobati
           </a>
@@ -395,41 +416,37 @@
             <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
             Tehran, Iran
           </span>
-        </div>
+        </address>
       </div>
     </header>
 
-    <!-- ── ABOUT ME ── -->
-    <div class="about-strip">
+    <section class="about-strip">
       <p>
         Front-End Developer with <strong>production experience</strong> at Yektanet (Uranus Team), building interactive HTML5 banner campaigns for Iran's leading brands across fintech, e-commerce, telecom, and retail. Delivered <strong>88+ campaigns</strong> — including live API-driven price tickers, physics-based GSAP animation systems, and real-time crypto charts. I take pride in writing clean, performant code that meets tight deadlines and translates complex design briefs into polished, production-ready creative assets. Currently expanding into React-based product interfaces and seeking a front-end role where strong animation expertise and performance awareness are valued.
       </p>
-    </div>
+    </section>
 
-    <!-- ── PORTFOLIO BANNER ── -->
-    <div class="portfolio-banner">
+    <aside class="portfolio-banner">
       <span class="portfolio-banner-text">To explore live working versions of these banner campaigns and component demos, visit</span>
-      <a href="https://haniehrbt.github.io/portfolio" target="_blank" class="inline-portfolio-btn">
+      <a href="https://haniehrbt.github.io/portfolio" target="_blank" rel="noopener" class="inline-portfolio-btn">
         <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/></svg>
         Explore Portfolio ↗
       </a>
-    </div>
+    </aside>
 
-    <!-- ── BODY ── -->
-    <div class="body">
+    <div class="body-grid">
 
       <main class="main-col">
 
-        <!-- Experience -->
         <section class="section">
-          <div class="section-title">Work Experience</div>
+          <h2 class="section-title">Work Experience</h2>
 
-          <div class="exp-item">
+          <article class="exp-item">
             <div class="exp-header">
               <span class="exp-role">Front-End Developer</span>
-              <span class="exp-period">Apr 2024 — Jun 2026</span>
+              <time class="exp-period">Apr 2024 — Jun 2026</time>
             </div>
-            <div class="exp-company">Yektanet (Uranus Team) · Tehran</div>
+            <p class="exp-company">Yektanet (Uranus Team) · Tehran</p>
             <div class="exp-desc">
               <ul>
                 <li>Delivered 88+ interactive HTML5/CSS3/JS banner campaigns for Iran's top brands across fintech, e-commerce, telecom, and retail sectors.</li>
@@ -440,53 +457,52 @@
                 <li>Coordinated with design, copy, and media teams to translate brand briefs into production assets on tight deadlines.</li>
               </ul>
             </div>
-          </div>
+          </article>
         </section>
 
-        <!-- Projects -->
         <section class="section">
-          <div class="section-title">Notable Projects</div>
+          <h2 class="section-title">Notable Projects</h2>
           <div class="project-grid">
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-card-header">
                 <span class="project-name">Black Friday Interactive Banner</span>
                 <span class="project-client">Snapp Pay</span>
               </div>
               <p class="project-desc">Interactive countdown banner with audio effects and time-synced GSAP animations.</p>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-card-header">
                 <span class="project-name">Prize Wheel Campaign</span>
                 <span class="project-client">Digikala</span>
               </div>
               <p class="project-desc">Canvas-rendered prize wheel with physics-based rotation and interactive prize reveals.</p>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-card-header">
                 <span class="project-name">Bitcoin Live Chart Banner</span>
                 <span class="project-client">Tabdeal</span>
               </div>
               <p class="project-desc">Real-time BTC price tracker featuring automated Chart.js sparkline updates and API fallbacks.</p>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-card-header">
                 <span class="project-name">Silver Live Price Banner</span>
                 <span class="project-client">Wallex</span>
               </div>
               <p class="project-desc">Real-time silver price ticker featuring live price calculations and 30-day market trends.</p>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-card-header">
                 <span class="project-name">Multi-Slide Product Carousel</span>
                 <span class="project-client">Palaz</span>
               </div>
               <p class="project-desc">Interactive multi-product banner featuring GSAP slide transitions and scroll-triggered animations.</p>
-            </div>
+            </article>
 
           </div>
         </section>
@@ -495,12 +511,11 @@
 
       <aside class="side-col">
 
-        <!-- Skills -->
         <section class="section">
-          <div class="section-title">Technical Skills</div>
+          <h2 class="section-title">Technical Skills</h2>
 
           <div class="skill-group">
-            <div class="skill-group-label">Animation &amp; Graphics</div>
+            <h3 class="skill-group-label">Animation &amp; Graphics</h3>
             <div class="tag-list">
               <span class="tag">GSAP 3</span>
               <span class="tag">CSS Animations</span>
@@ -510,7 +525,7 @@
           </div>
 
           <div class="skill-group">
-            <div class="skill-group-label">Core Web</div>
+            <h3 class="skill-group-label">Core Web</h3>
             <div class="tag-list">
               <span class="tag">HTML5</span>
               <span class="tag">CSS3</span>
@@ -520,7 +535,7 @@
           </div>
 
           <div class="skill-group">
-            <div class="skill-group-label">Frameworks &amp; Libraries</div>
+            <h3 class="skill-group-label">Frameworks &amp; Libraries</h3>
             <div class="tag-list">
               <span class="tag">React 18</span>
               <span class="tag">Chart.js</span>
@@ -529,7 +544,7 @@
           </div>
 
           <div class="skill-group">
-            <div class="skill-group-label">Tooling</div>
+            <h3 class="skill-group-label">Tooling</h3>
             <div class="tag-list">
               <span class="tag">Git</span>
               <span class="tag">Webpack</span>
@@ -539,9 +554,8 @@
           </div>
         </section>
 
-        <!-- Soft Skills -->
         <section class="section">
-          <div class="section-title">Soft Skills</div>
+          <h2 class="section-title">Soft Skills</h2>
           <div class="tag-list">
             <span class="tag soft">Attention to Detail</span>
             <span class="tag soft">Meeting Tight Deadlines</span>
@@ -552,25 +566,22 @@
           </div>
         </section>
 
-        <!-- Education -->
         <section class="section">
-          <div class="section-title">Education</div>
-          <div class="edu-item">
-            <div class="edu-degree">Associate Degree in English Translation</div>
-            <div class="edu-school">University of Applied Science and Technology</div>
-          </div>
+          <h2 class="section-title">Education</h2>
+          <article class="edu-item">
+            <p class="edu-degree">Associate Degree in English Translation</p>
+            <p class="edu-school">University of Applied Science and Technology</p>
+          </article>
         </section>
 
-        <!-- Languages -->
         <section class="section">
-          <div class="section-title">Languages</div>
-          <div class="side-item">Persian — Native</div>
-          <div class="side-item">English — Professional</div>
+          <h2 class="section-title">Languages</h2>
+          <p class="side-item">Persian — Native</p>
+          <p class="side-item">English — Professional</p>
         </section>
 
-        <!-- Brands -->
         <section class="section">
-          <div class="section-title">Client Brands</div>
+          <h2 class="section-title">Client Brands</h2>
           <div class="brand-list">
             <span class="brand-tag">Digikala</span>
             <span class="brand-tag">Irancell</span>
