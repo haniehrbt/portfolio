@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>uranus-agency.ir</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <script src="tags.js"></script>
+
+    <img class="hundred" src="hundred.gif" />
+    <img class="man" src="man.gif" />
+    <img class="cloud" src="cloud.png" />
+
+    <video playsinline muted autoplay loop class="product product1">
+      <source src="1.mp4" />
+    </video>
+
+    <video playsinline muted autoplay loop class="product product2">
+      <source src="2.mp4" />
+    </video>
+
+    <video playsinline muted autoplay loop class="product product3">
+      <source src="3.mp4" />
+    </video>
+
+    <video playsinline muted autoplay loop class="product product4">
+      <source src="4.mp4" />
+    </video>
+
+    <img class="bg" src="bg.svg" />
+    <img class="cta tapesh" src="cta.svg" />
+    <img class="overline overline1" src="overline1.svg" />
+    <img class="overline overline2" src="overline2.svg" />
+    <img class="overline overline3" src="overline3.svg" />
+    <img class="overline overline4" src="overline4.svg" />
+
+    <div class="overline-yellow">
+      <img src="overline1-yellow.svg" />
+    </div>
+    <div class="overline-yellow">
+      <img src="overline2-yellow.svg" />
+    </div>
+    <div class="overline-yellow">
+      <img src="overline3-yellow.svg" />
+    </div>
+    <div class="overline-yellow">
+      <img src="overline4-yellow.svg" />
+    </div>
+
+    <img class="logo" src="logo.png" />
+
+    <section class="content">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </section>
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

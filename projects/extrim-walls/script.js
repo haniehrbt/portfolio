@@ -1,0 +1,206 @@
+const products = document.querySelectorAll(".product");
+const contentElement = document.querySelector(".content");
+const bgs = document.querySelectorAll(".bgWall");
+// const cta = document.querySelector(".cta");
+let currentSlideNumber = 0;
+let rolls = [];
+let walls = [];
+let counter_insert_wallpaper = 0;
+let isShown = [false, false, false, false, false];
+let flag_enable_autoplay = true;
+
+const rollFiles = ["roll1.png", "roll2.png", "roll3.png", "roll4.png"];
+const wallFiles = ["wall1.png", "wall2.png", "wall3.png", "wall4.png"];
+
+window.addEventListener("load", () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+        ".overline",
+        { y: -150, opacity: 0 },
+        { y: -10, opacity: 1, duration: 1, ease: "bounce.out" },
+        "-=0.5"
+    );
+    tl.fromTo(
+        ".overline2",
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+        "-=0.5"
+    );
+
+    tl.fromTo(
+        ".buttonContainer",
+        { y: 100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            onComplete: () => {
+                tl.to(".cta", {
+                    scale: 1.1,
+                    duration: 0.2,
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true,
+                }, "+=1");
+            }
+        }
+    );
+    insertWallsAndRolls(1, 0);
+});
+
+(function init() {
+    bgs.forEach((bg, index) => {
+        bg.style.opacity = index === 0 ? "1" : "0";
+    });
+    products.forEach((product, index) => {
+        product.style.opacity = index === 0 ? "1" : "0";
+    });
+})();
+
+const rollContainer = document.getElementById("rollContainer");
+const wallContainer = document.getElementById("wallContainer");
+
+function removeAllNodes(nodeList) {
+    nodeList.forEach((node) => node.remove());
+}
+
+function insertWallsAndRolls(rollsCount, index) {
+    removeAllNodes(rolls);
+    removeAllNodes(walls);
+
+
+    rollContainer.innerHTML += `<img class="roll" src="roll${index + 1}.png">`.repeat(rollsCount);
+    wallContainer.innerHTML += `<img class="wall" src="wall${index + 1}.png">`.repeat(rollsCount);
+
+    rollContainer.innerHTML += `<img class="roll" src="roll${index + 1}.png">`;
+    wallContainer.innerHTML += `<img class="wall" src="wall${index + 1}.png">`;
+
+    rolls = document.querySelectorAll(".roll");
+    walls = document.querySelectorAll(".wall");
+
+
+
+    rolls[0].style.transform = 'translateX(9px)';
+    gsap.fromTo(
+        rolls[0],
+        { y: -10, opacity: 0 },
+        {
+            y: 22,
+            opacity: 1,
+            duration: 1,
+            ease: "ease.out",
+            delay: 0,
+        }
+    );
+
+    gsap.fromTo(
+        rolls[1],
+        { y: -10, opacity: 0 },
+        {
+            y: 55,
+            opacity: 1,
+            duration: 1,
+            ease: "ease.out",
+            delay: 0,
+        }
+    );
+
+
+    walls.forEach((wall, i) => {
+        gsap_change_opacity(wall, 1, 1);
+        wall.classList.add(`wall${i + 1}`);
+        gsap.fromTo(
+            wall,
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: 1,
+                ease: "ease.out",
+                delay: (i + rollsCount) * 0.4,
+            }
+        );
+    });
+
+}
+
+
+function gsap_change_opacity(element, opacity, duration) {
+    gsap.to(element, {
+        opacity: opacity,
+        duration: duration,
+    });
+}
+
+
+function handleBackground(currentNumber, nextNumber) {
+    if (nextNumber >= bgs.length) return;
+    gsap.to(bgs[currentNumber], {
+        duration: 0.5,
+        opacity: 0,
+    });
+    gsap.to(bgs[nextNumber], {
+        duration: 0.5,
+        opacity: 1,
+    });
+}
+
+function handleProducts(currentNumber, nextNumber) {
+    if (nextNumber >= products.length) return;
+    gsap.to(products[currentNumber], {
+        duration: 0.5,
+        opacity: 0,
+        onComplete: () => {
+            gsap.to(products[nextNumber], {
+                duration: 0.5,
+                opacity: 1,
+            });
+        },
+    });
+}
+
+function goToSlide(slideNumber) {
+    gsap.to(contentElement, {
+        duration: 0.5,
+        scrollTo: { x: 0, y: slideNumber * 120 },
+        ease: "power2.inOut",
+    });
+    handleProducts(currentSlideNumber, slideNumber);
+    insertWallsAndRolls(1, slideNumber);
+}
+
+let isScrolling = false;
+
+function handleScroll(percent, scrollPx, heightOfPage) {
+    if (isScrolling) return;
+
+    isScrolling = true;
+
+    const scrollStep = 250;  
+    let newSlideNumber = Math.floor(scrollPx / scrollStep);
+
+    newSlideNumber = newSlideNumber % bgs.length;
+
+    if (newSlideNumber === currentSlideNumber) {
+        isScrolling = false;
+        return;
+    }
+
+    handleBackground(currentSlideNumber, newSlideNumber);
+    handleProducts(currentSlideNumber, newSlideNumber);
+
+    currentSlideNumber = newSlideNumber;
+
+    goToSlide(currentSlideNumber);
+
+    setTimeout(() => {
+        isScrolling = false;
+    }, 2000); 
+}
+
+window.addEventListener("message", (e) => {
+    if (e.data.type !== "yn-window-scroll") {
+        return;
+    }
+    handleScroll(e.data.scrolled, e.data.scrolledInPx, e.data.heightOfPage);
+});

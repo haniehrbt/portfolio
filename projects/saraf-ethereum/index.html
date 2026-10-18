@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="chart.umd.min.js"></script>
+    <title>Document</title>
+    <link href="style2.css" rel="stylesheet" />
+  </head>
+  <body>
+    <video class="bg" src="./video.mp4" muted autoplay></video>
+    <img src="logo.svg" class="logo" />
+    <div class="price-container">
+      <span class="price-label"></span>
+      <div class="price-row">
+        <span class="priceText"></span>
+        <span class="price-unit">تومان</span>
+      </div>
+    </div>
+    <div id="timerDisplay">
+      <span class="timer-label">: تا قرعه کشی این هفته</span>
+      <div class="timer-digits">
+        <div class="digit-group">
+          <div class="digit-row">
+            <span class="time"></span>
+            <span class="time"></span>
+          </div>
+          <span class="time-caption">روز</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="digit-group">
+          <div class="digit-row">
+            <span class="time"></span>
+            <span class="time"></span>
+          </div>
+          <span class="time-caption">ساعت</span>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <img src="./overline.svg" class="overline" />
+      <img src="./cta.svg" class="cta" />
+    </div>
+    <script src="script2.js"></script>
+  </body>
+</html>

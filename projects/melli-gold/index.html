@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="./tags.js"></script>
+    <title>invi</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- background layers -->
+    <img src="./bg.png" class="bg" />
+    <div class="bg-glow"></div>
+    <div class="light-burst"></div>
+    <div class="shimmer-sweep"></div>
+
+    <!-- LEFT: logo + coin hero -->
+    <div class="left">
+      <img src="logo.svg" class="logo" />
+
+      <div class="coin-group">
+        <!-- coin with two orbit rings -->
+        <div class="coin-float-wrap">
+          <div class="ring ring-outer"></div>
+          <div class="ring ring-mid"></div>
+          <div class="gold-coin">
+            <span class="coin-crown">✦</span>
+            <span class="coin-five">۵</span>
+            <div class="coin-sep"></div>
+            <span class="coin-soot">سوت</span>
+          </div>
+        </div>
+
+        <!-- text beside coin, wipe-reveals -->
+        <div class="coin-text">
+          <span class="text-gold">طلا</span>
+          <span class="text-gift">هدیه اولین خرید</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: price + ticket -->
+    <div class="right">
+      <div class="bgPriceWrapper">
+        <img src="./bgPrice.svg" class="bgPrice" />
+        <span class="live-price">
+          <span class="live-value"></span>
+          <span class="live-indicator-wrapper">
+            <span class="live-indicator" aria-hidden="true"></span>
+          </span>
+          <span class="live-currency"> تومان</span>
+        </span>
+      </div>
+
+      <div class="ticket-wrap">
+        <!-- stamp rings (expand on ticket arrival + copy) -->
+        <div class="ticket-stamp-wrap">
+          <div class="stamp-ring sr1"></div>
+          <div class="stamp-ring sr2"></div>
+          <div class="ticket" title="بزن تا کد کپی شه">
+            <span class="ticket-label">کد هدیه</span>
+            <span class="ticket-tear"></span>
+            <span class="ticket-code">invi5</span>
+            <span class="copy-hint">⎘</span>
+          </div>
+        </div>
+        <div class="cta-nudge">بزن تا کپی کنی!</div>
+      </div>
+    </div>
+
+    <!-- floating sparkles (fixed, scattered across billboard) -->
+    <span class="spark sp1">✦</span>
+    <span class="spark sp2">✦</span>
+    <span class="spark sp3">✦</span>
+    <span class="spark sp4">·</span>
+    <span class="spark sp5">✦</span>
+    <span class="spark sp6">·</span>
+    <span class="spark sp7">✦</span>
+    <span class="spark sp8">·</span>
+    <span class="spark sp9">✦</span>
+    <span class="spark sp10">·</span>
+    <span class="spark sp11">✦</span>
+    <span class="spark sp12">·</span>
+    <span class="spark sp13">✦</span>
+    <span class="spark sp14">·</span>
+
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () { open(click_url); });
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

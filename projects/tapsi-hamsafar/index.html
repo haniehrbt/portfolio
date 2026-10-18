@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <script src="./tags.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="slide1">
+      <img src="./logo.png" class="logo" />
+      <img src="./output.gif" class="motion" />
+    </div>
+    <div class="slide2">
+      <img src="./bg.png" class="bg" />
+      <video loop autoplay playsinline muted>
+        <source src="./output.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <img src="./mainLogo.png" class="mainLogo" />
+    <div class="right">
+      <img src="./overline1.png" class="overline1" />
+      <img src="./overline2.png" class="overline2" />
+      <img src="./cta.png" class="cta" />
+    </div>
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

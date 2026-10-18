@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Peyda bold', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  scrollbar-color: transparent transparent;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.bg {
+  position: fixed;
+  z-index: 1;
+  height: 120px;
+  width: 100vw;
+  text-align: center;
+  object-fit: cover;
+  object-position: left;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  transform: translateX(-50%) translateY(100%);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-appearance: none;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  background: #db304e;
+  background: radial-gradient(
+    circle,
+    rgba(219, 48, 78, 1) 0%,
+    rgba(228, 0, 40, 1) 100%
+  );
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bg.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.logo {
+  position: fixed;
+  right: 28px;
+  bottom: 115px;
+  z-index: -1;
+}
+
+.overline {
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  width: 150px;
+}
+
+.pattern1 {
+  position: fixed;
+  right: 0;
+  width: 120px;
+  bottom: -5px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pattern2 {
+  position: fixed;
+  left: 0;
+  bottom: 5px;
+  width: 120px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gifts {
+  position: fixed;
+  width: 80px;
+  left: 28px;
+  bottom: 40px;
+}
+
+.bg.show .pattern1,
+.bg.show .pattern2 {
+  transform: translateY(0);
+}
+
+.bg:not(.show) .pattern1 {
+  transform: translateY(120px);
+}
+
+.bg:not(.show) .pattern2 {
+  transform: translateY(125px);
+}
+
+.coin {
+  width: 56px;
+  position: absolute;
+  animation-name: float, coinFadeIn;
+  animation-timing-function: ease-in-out, cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-iteration-count: infinite, 1;
+  animation-duration: 2s, 0.8s;
+  animation-fill-mode: both, forwards;
+  opacity: 0;
+  z-index: 5;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.4s ease-out,
+    scale 0.4s ease-out;
+}
+
+.coin.hide {
+  opacity: 0 !important;
+  transform: scale(0.5) !important;
+  pointer-events: none;
+}
+
+.diffused-0 {
+  width: 45px;
+  bottom: -10px;
+  left: 40px;
+  animation-duration: 2s, 0.8s;
+  animation-delay: 0s, 0.1s;
+}
+
+.diffused-1 {
+  bottom: 70px;
+  left: -20px;
+  transform: rotate(-118.94deg);
+  animation-duration: 3s, 0.8s;
+  animation-delay: 0s, 0.2s;
+}
+
+.diffused-2 {
+  bottom: 25px;
+  left: 330px;
+  transform: rotate(-25deg);
+  animation-duration: 2.5s, 0.8s;
+  animation-delay: 0s, 0.3s;
+}
+
+.diffused-3 {
+  bottom: 90px;
+  left: 270px;
+  width: 38px;
+  transform: rotate(185deg);
+  animation-duration: 4s, 0.8s;
+  animation-delay: 0s, 0.4s;
+}
+
+.diffused-4 {
+  bottom: 100px;
+  left: 420px;
+  width: 30px;
+  transform: rotate(-205deg);
+  animation-duration: 4s, 0.8s;
+  animation-delay: 0s, 0.5s;
+}
+
+.mainContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.person1,
+.person2 {
+  position: fixed;
+  height: 140px;
+  width: auto;
+  max-width: 140px;
+  max-height: 140px;
+  z-index: 0;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  transform-origin: center center;
+  pointer-events: none;
+  object-fit: contain;
+  object-position: center center;
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bg.show ~ .mainContainer .person1,
+.bg.show ~ .mainContainer .person2 {
+}
+
+.person1 {
+  animation: person1Fade 0.8s steps(1, end) infinite;
+}
+
+.person2 {
+  animation: person2Fade 0.8s steps(1, end) infinite;
+  opacity: 0;
+}
+
+.bg.show ~ .mainContainer .person1,
+.bg.show ~ .mainContainer .person2 {
+  animation: none !important;
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.bg.show ~ .mainContainer .person1 {
+  opacity: 1;
+}
+
+.bg.show ~ .mainContainer .person2 {
+  opacity: 0;
+}
+
+.phone {
+  position: fixed;
+  height: 95px;
+  left: 51.35%;
+  bottom: 50%;
+  text-align: center;
+  transform-origin: center center;
+  animation: pulse 0.8s infinite 1s;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.075;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes coinFadeIn {
+  from {
+    opacity: 0;
+    translatey: 20px;
+    scale: 0.8;
+  }
+  to {
+    opacity: 1;
+    translatey: 0;
+    scale: 1;
+  }
+}
+
+@keyframes phoneFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(6.5%, 28%) scale(0.8) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(6.5%, 28%) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(3px, 0px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(16px, 10px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translate(3px, 0px) rotate(1deg);
+  }
+}
+
+@keyframes person1Fade {
+  0% {
+    opacity: 1;
+  }
+  49.99% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99.99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes person2Fade {
+  0% {
+    opacity: 0;
+  }
+  49.99% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  99.99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.finalSlide {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.lastSlideCopy {
+  position: fixed;
+  z-index: 4;
+  left: 50%;
+  bottom: 5%;
+  /*transform: translate(5%, 75%);*/
+  width: 265px;
+  opacity: 0;
+}
+
+.cta {
+  position: fixed;
+  width: 85px;
+  opacity: 0;
+  bottom: 17px;
+  left: 80px;
+  z-index: 999999;
+  animation: pulse 0.7s infinite;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.infoBox {
+  position: fixed;
+  width: 100px;
+  bottom: 50px;
+  opacity: 0;
+  z-index: 999;
+  right: 85px;
+  pointer-events: none;
+}

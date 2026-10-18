@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <script src="tags.js"></script>
+  </head>
+
+  <body>
+    <div class="intro">
+      <div style="position: relative; width: 100%; height: 100%">
+        <img class="intro-img" src="intro.png" />
+        <img class="light pulse" src="light.png" />
+        <img class="wheel wheel-front" src="wheel-front.png" />
+        <img class="wheel wheel-back" src="wheel-back.png" />
+      </div>
+    </div>
+
+    <img class="banner" src="banner.png" />
+    <img class="logo" src="logo.svg" />
+    <img class="seventeen" src="seventeen.png" />
+    <img class="percent" src="percent.gif" />
+    <img class="overline" src="overline.png" />
+    <img class="cta tapesh" src="cta.svg" />
+    <img class="products float" src="products.png" />
+
+    <img class="star star1" src="star.png" />
+
+    <img class="bg" src="bg.png" />
+
+    <script src="script.js"></script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

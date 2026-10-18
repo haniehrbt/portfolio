@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: 'MyRooyin', sans-serif;
+}
+
+@font-face {
+  font-family: 'MyRooyin';
+  font-weight: bold;
+  src: url('RooyinFreeFaNum-Bold.ttf') format('truetype');
+}
+
+body {
+  font-family: Rooyin, sans-serif;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px;
+  overflow: hidden;
+  border-radius: 0;
+  height: 150px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.game-area {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background: transparent;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.track {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 22.5px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@media (max-width: 800px) {
+  .game-area {
+    flex: 1;
+    height: 100%;
+  }
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+}
+
+.score {
+  position: fixed;
+  font-family: 'MyRooyin';
+  bottom: 123px;
+  left: 15px;
+  width: 95px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: #333;
+  z-index: 10;
+}
+
+.score-bg {
+  position: fixed;
+  bottom: 80px;
+  left: 12.5px;
+  width: 100px;
+  height: 100px;
+  z-index: 10;
+}
+
+.game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+  z-index: 999999;
+  height: 150px;
+}
+
+.game-over.active {
+  display: block;
+}
+
+.game-over-img {
+  height: 100%;
+}
+
+.score1,
+.score2,
+.score3 {
+  font-size: 11px;
+  position: fixed;
+  bottom: 124px;
+  left: 22.5%;
+  transform: translateX(-50%);
+  color: #333;
+  font-weight: bold;
+  font-family: 'MyRooyin', sans-serif;
+  /* border: 1px solid red; */
+  width: 40px;
+  text-align: left;
+}
+
+.score2 {
+  bottom: 106px;
+}
+
+.score3 {
+  bottom: 89px;
+}
+
+.scoreYou {
+  font-size: 11px;
+  position: fixed;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #333;
+  font-weight: bold;
+  font-family: 'MyRooyin', sans-serif;
+}
+
+#resetBtn {
+  position: fixed;
+  bottom: 22px;
+  left: 70%;
+  transform: translateX(-50%);
+  width: 55px;
+}
+
+#cta {
+  position: fixed;
+  bottom: 22px;
+  left: 28%;
+  transform: translateX(-50%);
+  width: 55px;
+}
+
+.start-screen {
+  position: fixed;
+  left: 52.5%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  z-index: 200;
+  transform-origin: center center;
+  animation: pulse 1s infinite;
+}
+
+.start-screen.hidden {
+  display: none;
+}
+
+.gate {
+  position: fixed;
+  right: 5px;
+  bottom: 21.5px;
+  width: 120px;
+  z-index: 15;
+}
+
+.logo {
+  position: fixed;
+  right: 33px;
+  bottom: 119px;
+  z-index: 15;
+}
+
+.unmute {
+  position: fixed;
+  right: 5px;
+  bottom: 121px;
+  z-index: 15;
+}
+
+.unmute-icon {
+  position: fixed;
+  right: 9px;
+  bottom: 132px;
+  rotate: -45deg;
+  background: black;
+  width: 20px;
+  z-index: 9999;
+  height: 2px;
+  opacity: 0;
+}
+
+.unmute-icon.muted {
+  opacity: 1;
+}
+
+.city-background {
+  position: fixed;
+  left: 0;
+  bottom: 15px;
+  z-index: -1;
+  pointer-events: none;
+  width: 100%;
+  height: 115px;
+  /*background-image: url('city.svg');*/
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: auto;
+}
+
+.city-background-color {
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  z-index: -1;
+  pointer-events: none;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, #b0eef700, #b0eef7 40%);
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.box1,
+.box2 {
+  position: fixed;
+  left: 30px;
+  bottom: 70px;
+  height: 45px;
+  z-index: 15;
+}
+
+.box2 {
+  opacity: 0;
+  height: 55px;
+  left: 55px;
+}

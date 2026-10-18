@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 120px;
+  background-color: transparent;
+}
+
+.bg {
+  box-shadow: 0px 0px 10px #565eb6;
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  z-index: -100;
+  background: #cbddff;
+  height: 115px;
+  width: calc(55% - 10px);
+  border-radius: 10px;
+  border: 1px solid #565eb6;
+}
+
+.video {
+  position: fixed;
+  left: -25px;
+  height: 150px;
+  bottom: -5px;
+  /*border: 1px solid red;*/
+}
+
+.logo {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  z-index: -200;
+  width: 100px;
+  border: 1px solid #cbddff;
+  padding-inline: 6px;
+  padding-block: 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: #cbddff;
+  box-shadow: 0px 0px 10px #565eb6;
+  border-right: 1px solid #565eb6;
+  border-top: 1px solid #565eb6;
+  border-left: 1px solid #565eb6;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.cta {
+  position: fixed;
+  right: 30px;
+  width: 100px;
+  bottom: 20px;
+  animation: tapesh 0.75s ease-in infinite;
+}
+
+.overline {
+  position: fixed;
+  right: 20px;
+  width: 150px;
+  bottom: 80px;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

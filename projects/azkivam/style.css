@@ -1,0 +1,124 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.hundred {
+  position: fixed;
+  right: -200px;
+  bottom: -10px;
+  height: 130px;
+}
+
+.man {
+  position: fixed;
+  left: -32%;
+  bottom: -10px;
+  opacity: 0;
+  height: 170px;
+}
+
+.cloud {
+  position: fixed;
+  right: 20%;
+  top: 0;
+  opacity: 1;
+  transform-origin: right;
+  width: 141.09px;
+  scale: 0;
+}
+
+.product {
+  position: fixed;
+  left: -250px;
+  height: 116.39px;
+  bottom: 6px;
+  border-radius: 10px;
+  z-index: -10;
+  opacity: 0;
+}
+
+.product1 {
+  opacity: 1;
+}
+
+.bg {
+  position: fixed;
+  right: -250px;
+  bottom: 6px;
+  height: 116.39px;
+  width: 60%;
+  object-fit: cover;
+  object-position: left;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.logo {
+  position: fixed;
+  right: 5%;
+  height: 40px;
+  z-index: -999;
+  bottom: 160px;
+}
+
+.cta {
+  position: fixed;
+  z-index: 10;
+  right: 8%;
+  bottom: 20px;
+  opacity: 0;
+}
+
+.overline {
+  position: fixed;
+  right: 5%;
+  top: 40px;
+  opacity: 0;
+}
+
+.overline-yellow {
+  position: fixed;
+  right: 5%;
+  top: 40px;
+  opacity: 0;
+  z-index: 10;
+}
+
+.overline-yellow img {
+  animation: pulse 1s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation: pulse 1s infinite linear;
+}
+
+.tapesh {
+  animation: tapesh 1s infinite ease-in-out;
+}
+
+@keyframes tapesh {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

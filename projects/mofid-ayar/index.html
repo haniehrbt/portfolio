@@ -1,0 +1,237 @@
+<!doctype html>
+
+<html dir="rtl" lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.yektanet.com/assets/3rdparty/gsap@3.12.5/gsap.min.js"></script>
+    <title>uranus-agency.ir</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      :root {
+        --uranus-glass: #000000;
+        --uranus-titr: #00aaa5;
+        --uranus-subtitr: #000000;
+        --uranus-cta-bg: #00aaa5;
+        --uranus-cta-content: #ffffff;
+        --uranus-logo-bg: #ffffff;
+
+        /*--uranus-bg: black;*/
+        /*--uranus-glass: #011B0E;*/
+        /*--uranus-titr: #ffdb6f;*/
+        /*--uranus-subtitr: #a48118;*/
+        /*--uranus-cta-bg: white;*/
+        /*--uranus-cta-content: black;*/
+        /*--uranus-logo-bg: white;*/
+      }
+
+      @font-face {
+        font-family: 'Dana-Bold';
+        src: url('danabold.woff2') format('woff');
+      }
+
+      body {
+        width: 100%;
+        height: 120px;
+        background-color: transparent;
+      }
+
+      .logo {
+        transform-origin: center;
+        position: fixed;
+        right: 5%;
+        bottom: 71.5px;
+        /*border: 1px solid red;*/
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        transform: translateY(-100px);
+        border-bottom-right-radius: 10px;
+        padding-inline: 5px;
+        padding-block: 5px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .cta {
+        min-width: 30%;
+        font-family: 'Dana-Bold', sans-serif;
+        position: fixed;
+        color: var(--uranus-cta-content);
+        bottom: 4%;
+        left: 6%;
+        font-size: 10px;
+        transform-origin: center;
+        background: var(--uranus-cta-bg);
+        padding-inline: 1vw;
+        padding-block: 3vh;
+        border-radius: 100vh;
+        border: 0;
+        animation: tapesh 0.75s infinite linear;
+      }
+
+      @keyframes tapesh {
+        0%,
+        100% {
+          scale: 1;
+        }
+        50% {
+          scale: 1.15;
+        }
+      }
+
+      h1 {
+        position: fixed;
+        font-family: 'Dana-Bold', sans-serif;
+        color: white;
+        font-weight: 900;
+        font-size: 20px;
+        right: 5%;
+        bottom: 20%;
+        text-align: left;
+        transform: translateX(2em);
+        opacity: 0;
+      }
+
+      h1 span {
+        font-family: inherit;
+        font-size: inherit;
+        color: var(--uranus-titr);
+      }
+
+      h2 {
+        position: fixed;
+        font-family: 'Dana-Bold', sans-serif;
+        color: var(--uranus-subtitr);
+        font-weight: 900;
+        font-size: 10px;
+        right: 5%;
+        bottom: 23%;
+        text-align: left;
+        transform: translateX(2em);
+        opacity: 0;
+      }
+
+      .bg {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        position: fixed;
+        z-index: -999999999;
+        height: 120px;
+        width: 100%;
+        object-fit: cover;
+        left: 0;
+        bottom: 0;
+      }
+
+      .bg-glass {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        position: fixed;
+        z-index: -100;
+        height: 120px;
+        width: 100%;
+        left: 0;
+        background: black;
+        opacity: 0.4;
+        bottom: 0;
+      }
+    </style>
+    <meta content="تیتر اصلی" name="field-text1" />
+    <meta content="ساب‌تیتر" name="field-text2" />
+    <meta content="متن CTA" name="field-text4" />
+    <meta content="تصویر لوگو" name="field-image1" />
+    <meta content="تصویر محصول" name="field-image2" />
+    <meta content="ویدیو بکگراند" name="field-video1" />
+    <meta content="بکگراند لوگو" name="field-color1" />
+    <meta content="رنگ شیشه‌ی روی ویدیو" name="field-color2" />
+    <meta content="رنگ تیتر" name="field-color3" />
+    <meta content="رنگ ساب‌تیتر" name="field-color4" />
+    <meta content="رنگ بکگراند CTA" name="field-color5" />
+    <meta content="رنگ متن CTA" name="field-color6" />
+    <meta content="رنگ شروع گرادینت Overline" name="field-color7" />
+    <meta content="رنگ پایان گرادینت Overline" name="field-color8" />
+    <meta content="رنگ متن Overline" name="field-color9" />
+  </head>
+  <body>
+    <div class="bg-glass"></div>
+    <img class="logo" src="logo.svg" />
+    <video
+      autoplay=""
+      class="bg"
+      muted=""
+      playsinline=""
+      src="video.mp4"
+    ></video>
+    <h1>
+      سرمایه‌گذاری تمام‌عیار در
+      <span style="color: inherit; font-size: inherit; margin: 1px">طلا</span>
+    </h1>
+    <h2></h2>
+
+    <button class="cta">مشاوره رایگان</button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logo = document.querySelector('.logo');
+        const cta = document.querySelector('.cta');
+
+        const titr = document.querySelector('h1');
+        const subtitr = document.querySelector('h2');
+        const overline = document.querySelector('.overline');
+
+        const tl = gsap.timeline({});
+
+        const video = document.querySelector('.bg');
+        video.addEventListener('ended', function () {
+          location.reload();
+        });
+
+        tl.to(logo, {
+          delay: 0.5,
+          duration: 0.5,
+          transform: 'translateY(0px)',
+        });
+
+        tl.to(titr, {
+          delay: 0.5,
+          duration: 0.5,
+          opacity: 1,
+          transform: 'translateX(0em)',
+        }).to(
+          subtitr,
+          {
+            duration: 0.5,
+            transform: 'translateX(0em)',
+            opacity: 1,
+          },
+          '<'
+        );
+      });
+    </script>
+    <script>
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\[').replace(/[\]]/, '\]');
+        var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null
+          ? ''
+          : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      click_url = getParameterByName('click_url');
+      if (click_url) {
+        document.addEventListener('click', function () {
+          open(click_url);
+        });
+      }
+    </script>
+  </body>
+</html>

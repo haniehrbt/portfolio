@@ -1,0 +1,312 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.slide1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.logo {
+  position: fixed;
+  bottom: 102px;
+  right: 50px;
+}
+
+.gifts {
+  position: relative;
+  width: 200px;
+  bottom: -40px;
+  right: -5px;
+}
+
+.gifts > * {
+  opacity: 0;
+}
+
+.car1Container {
+  position: relative;
+  width: 20px;
+  right: 63.5px;
+  bottom: 7px;
+  z-index: 1;
+}
+
+.weelCar1front {
+  position: fixed;
+  width: 35px;
+  right: -72px;
+  bottom: -100px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.weelCar1back {
+  position: fixed;
+  width: 35px;
+  right: 47px;
+  bottom: -100px;
+  border: 2px solid #f1b80c;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px 2px #f1b80c;
+}
+
+.cra1 {
+  position: fixed;
+  width: 190px;
+  right: -90px;
+  bottom: -100px;
+  /*opacity: 0;*/
+}
+
+.car2Container {
+  position: relative;
+  width: 170px;
+  z-index: 2;
+  bottom: -8px;
+  right: -120px;
+}
+
+.weelCar2front {
+  position: fixed;
+  width: 30px;
+  right: 185px;
+  bottom: -85px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px 2px #f1b80c;
+  border: 2px solid #f1b80c;
+}
+
+.weelCar2fback {
+  position: fixed;
+  width: 35px;
+  bottom: -90px;
+  right: 68px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.cra2 {
+  position: fixed;
+  width: 170px;
+  right: 55px;
+  bottom: -85px;
+}
+
+.motorContainer {
+  position: relative;
+  width: 80px;
+  right: -204px;
+  bottom: 1.5px;
+  z-index: 4;
+}
+
+.motor {
+  position: fixed;
+  width: 80px;
+  right: 180px;
+  bottom: -90px;
+}
+
+.weelMotorfront {
+  position: fixed;
+  width: 30px;
+  right: 170px;
+  bottom: -94px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.weelMotorback {
+  position: fixed;
+  width: 25px;
+  right: 230px;
+  bottom: -94px;
+  border: 2px solid #f1b80c;
+  border-radius: 80%;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px 2px #f1b80c;
+}
+
+.stageContainer {
+  position: relative;
+  width: 200px;
+  left: 10px;
+  bottom: 0;
+  z-index: 1;
+}
+
+.stage {
+  position: fixed;
+  width: 250px;
+}
+
+.bgContainer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -200px;
+  height: 128px;
+  width: 100%;
+}
+
+.flower {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -210px;
+  width: 100%;
+  z-index: 999;
+}
+
+.wheel_front {
+  position: fixed;
+  bottom: 11%;
+  right: -4%;
+}
+
+.wheel_back {
+  position: fixed;
+  bottom: 11%;
+  left: 16%;
+}
+
+.numbers {
+  position: fixed;
+  width: 150px;
+  z-index: 999;
+  right: 13.5px;
+  bottom: 5px;
+  /*border: 2px solid red;*/
+}
+
+.one {
+  position: fixed;
+  height: 60px;
+  right: 145px;
+  bottom: 15px;
+  opacity: 0;
+}
+
+.zero {
+  width: 88%;
+  opacity: 0;
+}
+
+.slide2 {
+  position: fixed;
+  right: 50px;
+  bottom: 15px;
+  gap: 13px;
+  /*border: 2px solid darkred;*/
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+
+.overline {
+  width: 150px;
+}
+
+.cta {
+  animation: pulse 1.5s infinite;
+}
+
+.rotate {
+  animation: spin 0.8s linear infinite;
+  animation-play-state: running;
+}
+
+.rotate-back {
+  animation: spin-back 0.8s linear infinite;
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-back {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.weelCar1back,
+.weelCar2front,
+.weelCar2fback,
+.weelMotorback {
+  border: none;
+  box-shadow: none;
+}
+
+.weelCar1back.ring-active,
+.weelCar2front.ring-active,
+.weelCar2fback.ring-active,
+.weelMotorback.ring-active {
+  border: 2px solid #f1b80c;
+  box-shadow: 0 0 8px 2px #f1b80c;
+  animation: borderSpin 0.5s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% {
+    border-color: #f1b80c;
+    box-shadow: 0 0 8px 2px #f1b80c;
+  }
+  25% {
+    border-color: #ffd700;
+    box-shadow: 0 0 8px 2px #ffd700;
+  }
+  50% {
+    border-color: #ffed4e;
+    box-shadow: 0 0 8px 2px #ffed4e;
+  }
+  75% {
+    border-color: #ffd700;
+    box-shadow: 0 0 8px 2px #ffd700;
+  }
+  100% {
+    border-color: #f1b80c;
+    box-shadow: 0 0 8px 2px #f1b80c;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 50%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
